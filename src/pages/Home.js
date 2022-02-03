@@ -16,7 +16,7 @@ const Home = () => {
                             type="email"
                             // placeholder='serge@subway.com'
                         />
-                        <label>Password</label>
+                        <label>Mot de passe</label>
                         <input
                             type="password"
                         />
