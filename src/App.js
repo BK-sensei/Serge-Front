@@ -6,17 +6,19 @@ import GameBoard from './pages/GameBoard'
 import Profile from './pages/Profile'
 import AuctionRoom from './pages/AuctionRoom'
 import NotFound from './pages/NotFound'
+import Cards from "./components/Cards"
 
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-          <Route exact path="/" element={ <Home /> } />
-          <Route path="/gameboard" element={ <GameBoard /> } />
-          <Route path="/profile" element={ <Profile /> } />
-          <Route path="/auction-room" element={ <AuctionRoom /> } />
-          <Route path="*" element={ <NotFound /> } />
+        <Route exact path="/" element={<Home />} />
+        <Route path="/gameboard" element={<GameBoard />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/auction-room" element={<AuctionRoom />} />
+        <Route path="/Cards" element={<Cards />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )
