@@ -62,7 +62,7 @@ const Dicediv = styled.div`
     `
 const RightButton = styled.div`
     position: absolute;
-    left: 87.09%;
+    left: 55%;
     right: 1.91%;
     top: 86.12%;
     bottom: 3.13%;
@@ -73,8 +73,8 @@ const RightButton = styled.div`
     `
 const LeftButton = styled.div`
     position: absolute;
-    left: 75.06%;
-    right: 13.95%;
+    left: 1.9%;
+    right: 55%;
     top: 86.12%;
     bottom: 3.13%;
 
@@ -92,7 +92,7 @@ const SideBar = () => {
             <CardsContainer/>
             <Dicediv/>
             <RightButton/>
-            {/* <img src = "../img/dice.png" /> */}
+            <LeftButton/>
         </Container>
     );
 };
