@@ -1,0 +1,13 @@
+#mapContainer{
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 25%;
+    bottom: 0;
+    top: 0;
+}
+
+/* .mapContent{
+    height: 100%;
+    width: 100%;
+} */
