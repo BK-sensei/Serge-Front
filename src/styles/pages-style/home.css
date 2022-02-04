@@ -7,9 +7,7 @@
 }
 
 body {
-    background-image: url(../../../public/images/fond-metro.png);
     font-family: 'Fascinate Inline', cursive;
-    background-size: auto;
 }
 
 .home-container {
@@ -17,6 +15,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url(../../../public/images/fond-metro.png);
+    background-size: auto;
 }
 
 .bg-golden{
