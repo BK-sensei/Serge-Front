@@ -1,32 +1,28 @@
 import { Link } from 'react-router-dom'
 
 import TitleWebSite from '../components/TitleWebSite.js'
-import Login from '../components/forms/Login.js'
+import SignUp from '../components/forms/SignUp.js'
 
 import ('../styles/pages-style/home.css')
 
+const Signup = () => {
 
-import SideBar from '../components/SideBar'
-
-const Home = () => {
     return (
         <div className='home-container'>
             <TitleWebSite />
-
-            <Login />
+            <SignUp />
 
             <div className='bg-blue signup-div'>
-                <h3>Pas de compte ?</h3>
-                <Link to='/signup'>
+                <h3>Déjà un compte ?</h3>
+                <Link to='/'>
                     <button 
                         type='button'
                         className='signup-btn'
-                    >Inscription
-                    </button>
+                    >Connexion</button>
                 </Link>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Home
+export default Signup

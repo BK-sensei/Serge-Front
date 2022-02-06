@@ -1,0 +1,114 @@
+/* STYLE DE LA HOMEPAGE */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fascinate Inline', cursive;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../../public/images/fond-metro.png);
+    background-size: auto;
+}
+
+.bg-golden{
+    /* width: 350px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(0deg, rgba(255, 122, 0, 0.7), rgba(255, 122, 0, 0.7)), radial-gradient(62.08% 62.08% at 4% 0%, #FFFFFF 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(241.43deg, #576255 9.01%, #757A7B 17.41%, #576255 27.54%, #576255 45.23%, #848B8A 55.34%, #9EA1A1 80.43%, #576255 89.04%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px 50px 10px 10px;
+    margin-top: 30px;
+}
+
+.bg-bronze {
+    /* width: 300px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(0deg, rgba(255, 171, 0, 0.7), rgba(255, 171, 0, 0.7)), radial-gradient(62.08% 62.08% at 4% 0%, #FFFFFF 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(241.43deg, #576255 9.01%, #757A7B 17.41%, #576255 27.54%, #576255 45.23%, #848B8A 55.34%, #9EA1A1 80.43%, #576255 89.04%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px 50px 10px 10px;
+    margin: 20px;
+}
+
+h2 {
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+    color: #A95C06;
+    text-shadow: 0px 4px 4px 0px #00000040 inset;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+input {
+    width: 350px;
+    height: 40px;
+    background: #A95C06;
+    box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: none;
+    font-family: 'Fascinate Inline', cursive;
+    color: rgb(238, 221, 210);
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+button {
+    font-family: 'Fascinate Inline', cursive;
+}
+
+.ok-btn {
+    /* width: 100px; */
+    align-self: center;
+    font-size: 20px;
+    color: white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(0deg, rgba(4, 32, 184, 0.7), rgba(4, 32, 184, 0.7)), radial-gradient(62.08% 62.08% at 4% 0%, #FFFFFF 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(241.43deg, #576255 9.01%, #757A7B 17.41%, #576255 27.54%, #576255 45.23%, #848B8A 55.34%, #9EA1A1 80.43%, #576255 89.04%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.signup-div {
+    padding: 10px 20px;
+    color: white;
+    gap: 15px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.signup-btn{
+    color: white;
+    background: linear-gradient(0deg, rgba(255, 171, 0, 0.7), rgba(255, 171, 0, 0.7)), radial-gradient(62.08% 62.08% at 4% 0%, #FFFFFF 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(241.43deg, #576255 9.01%, #757A7B 17.41%, #576255 27.54%, #576255 45.23%, #848B8A 55.34%, #9EA1A1 80.43%, #576255 89.04%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: none;
+    padding: 5px 15px;
+}
+
+.chooseAnAvatar {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.bunny {
+    width: 50px;
+}
