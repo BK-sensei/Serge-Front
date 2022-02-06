@@ -5,6 +5,9 @@ import Login from '../components/forms/Login.js'
 
 import ('../styles/pages-style/home.css')
 
+
+import SideBar from '../components/SideBar'
+
 const Home = () => {
     return (
         <div className='home-container'>
