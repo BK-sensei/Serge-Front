@@ -18,21 +18,30 @@ const SignUp = () => {
             email: '',
             password: '',
             passwordConfirmation: '',
-            avatar: ''
+            balance: 1500
+            // avatar: ''
         },
+<<<<<<< HEAD
         onSubmit: async (values, { setFielError }) => {
             console.log("test")
             const { username, password } = values
             console.log("coucou")
+=======
+        onSubmit: async (values, { setFieldError }) => {
+            const { username, email, password, balance } = values
+
+>>>>>>> ad03c87fabf1aae78a37a9ffb79c5606a2ab61ab
             const response = await signUp({
                 username,
-                password
+                password,
+                email,
+                balance
             })
 
             if (response.error) {
-                setFielError('submit', response.error)
+                setFieldError('submit', response.error)
             } else {
-                const user = await logIn({ username, password })
+                const user = await logIn({ username: email, password })
                 setUser(user)
                 navigate('/gameboard')
             }
@@ -70,6 +79,9 @@ const SignUp = () => {
                         <input
                             type="email"
                             name='email'
+                            onChange={handleChange}
+                            value ={values.email}
+                            error={errors.email}
                         />
                         <label>Mot de passe</label>
                         <input
