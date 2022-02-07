@@ -47,7 +47,10 @@ body {
 
     color: #000000;
 }
-
+.card-counter{
+    background-color: aqua;
+    height : 150px;
+}
 .cards-container{
     background-color: #F4F4C9;
     height : 80%;

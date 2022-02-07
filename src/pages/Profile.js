@@ -1,9 +1,13 @@
-import React from 'react'
+import {useContext} from 'react'
 import SideBar from '../components/SideBar';
+import { UserContext } from '../contexts/User';
 
 import ('../styles/pages-style/home.css')
 
+
 const Profile = () => {
+    const {user} = useContext(UserContext)
+    console.log(user)
     return (
         <div className='page-container'>
             <div className = 'profile-container'>
@@ -16,7 +20,7 @@ const Profile = () => {
                         </h2>
                     </div>
                     <div className='counter'>
-                        <div>
+                        <div className='card-counter'>
                             <p>
                                 2
                             </p>
