@@ -37,7 +37,7 @@ const SignUp = () => {
             }
         },
         validationSchema: Yup.object({
-            pseudo: Yup.string()
+            username: Yup.string()
             .required("Pseudo obligatoire"),
             email: Yup.string()
             .required("Email obligatoire")
@@ -93,11 +93,12 @@ const SignUp = () => {
                             <img src={require('../../images/avatars/bunny-green.png')} className='bunny' alt='' />
                             <img src={require('../../images/avatars/bunny-purple.png')} className='bunny' alt='' />
                         </div>
+                        
+                        <button 
+                            type='submit'
+                            className='ok-btn'
+                        >S'inscrire</button>
                     </form>
-                    <button 
-                        type='submit'
-                        className='ok-btn'
-                    >S'inscrire</button>
                 </div>
             </div>
         </>

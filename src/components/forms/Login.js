@@ -60,11 +60,11 @@ const Login = () => {
                             value={values.password}
                             error={errors.password}
                         />
+                        <button 
+                            type='submit'
+                            className='ok-btn'
+                        >OK</button>
                     </form>
-                    <button 
-                        type='submit'
-                        className='ok-btn'
-                    >OK</button>
                 </div>
             </div>
         </>
