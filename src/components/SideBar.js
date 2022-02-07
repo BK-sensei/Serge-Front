@@ -4,7 +4,8 @@ import styled from 'styled-components'
 
 
 const Container = styled.div`
-    background-color : #E5E5E5;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
     width : 20%;
     position: absolute;
     left: 78%;
@@ -20,7 +21,7 @@ const UserContainer = styled.div`
     bottom: 88.63%;
     background: #C7E4EE;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
+    border-radius: 20px;
     `
 const BankContainer = styled.div`
     position: absolute;
@@ -32,7 +33,7 @@ const BankContainer = styled.div`
     background: #E1F2CC;
     border: 5px solid #2D4E30;
     box-sizing: border-box;
-    border-radius: 30px;
+    border-radius: 20px;
     `
 const CardsContainer = styled.div`
 
@@ -85,6 +86,7 @@ const LeftButton = styled.div`
 
 const SideBar = () => {
     const {isHome, setIshome}= useState(true)
+
     return (
         <Container>
             <UserContainer/>

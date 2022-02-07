@@ -87,11 +87,11 @@ const SignUp = () => {
                         />
                         <label>Choisir un avatar</label>
                         <div className='chooseAnAvatar'>
-                            <img src={require('../../images/bunny-blue.png')} className='bunny' alt='' />
-                            <img src={require('../../images/bunny-yellow.png')} className='bunny' alt='' />
-                            <img src={require('../../images/bunny-pink.png')} className='bunny' alt='' />
-                            <img src={require('../../images/bunny-green.png')} className='bunny' alt='' />
-                            <img src={require('../../images/bunny-purple.png')} className='bunny' alt='' />
+                            <img src={require('../../images/avatars/bunny-blue.png')} className='bunny' alt='' />
+                            <img src={require('../../images/avatars/bunny-yellow.png')} className='bunny' alt='' />
+                            <img src={require('../../images/avatars/bunny-pink.png')} className='bunny' alt='' />
+                            <img src={require('../../images/avatars/bunny-green.png')} className='bunny' alt='' />
+                            <img src={require('../../images/avatars/bunny-purple.png')} className='bunny' alt='' />
                         </div>
                     </form>
                     <button 
