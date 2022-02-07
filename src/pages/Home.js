@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom'
 
-import TitleWebSite from '../components/TitleWebSite.js'
+import TitleWebSite from '../components/titles/TitleWebSite.js'
 import Login from '../components/forms/Login.js'
 
 import ('../styles/pages-style/home.css')
-
-
-import SideBar from '../components/SideBar'
 
 const Home = () => {
     return (
