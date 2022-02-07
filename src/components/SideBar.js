@@ -11,7 +11,7 @@ const Container = styled.div`
     left: 78%;
     right: 0.69%;
     top: 1.34%;
-    bottom: 1.43%;
+    bottom: 1.43%;Z
     `
 const UserContainer = styled.div`
     position: absolute;
@@ -49,6 +49,24 @@ const CardsContainer = styled.div`
     border-radius: 30px;
 
     overflow-y: scroll;
+    ::-webkit-scrollbar {
+    width: 15px;
+    height : 70%;
+    }
+
+    ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+    background: red; 
+    border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+    }
 
     `
 const Dicediv = styled.div`
@@ -63,19 +81,20 @@ const Dicediv = styled.div`
     `
 const RightButton = styled.div`
     position: absolute;
-    left: 87.09%;
+    left: 55%;
     right: 1.91%;
     top: 86.12%;
     bottom: 3.13%;
 
     background: #F0BC97;
+    background
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 30px;
     `
 const LeftButton = styled.div`
     position: absolute;
-    left: 75.06%;
-    right: 13.95%;
+    left: 1.9%;
+    right: 55%;
     top: 86.12%;
     bottom: 3.13%;
 
@@ -85,16 +104,16 @@ const LeftButton = styled.div`
     `
 
 const SideBar = () => {
-    const {isHome, setIshome}= useState(true)
-
     return (
         <Container>
             <UserContainer/>
             <BankContainer/>
             <CardsContainer/>
             <Dicediv/>
-            <RightButton/>
-            {/* <img src = "../img/dice.png" /> */}
+            <RightButton>
+                click
+            </RightButton>
+            <LeftButton/>
         </Container>
     );
 };

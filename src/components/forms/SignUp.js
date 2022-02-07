@@ -23,7 +23,7 @@ const SignUp = () => {
         onSubmit: async (values, { setFielError }) => {
             console.log("test")
             const { username, password } = values
-
+            console.log("coucou")
             const response = await signUp({
                 username,
                 password
