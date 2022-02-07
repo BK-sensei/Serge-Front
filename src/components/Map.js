@@ -2,111 +2,176 @@ import { useState, useEffect } from 'react'
 import * as d3 from "d3";
 
 import { getProperties } from '../api/properties'
-import "../styles/components-style/LinesColors.css"
-import "../styles/components-style/Map.css"
+import { getLines } from '../api/lines'
+import "../styles/components-style/linesColors.css"
+import "../styles/components-style/map.css"
+import parisMap from '../images/arrondissements.geojson'
 
+const lodash = require("lodash")
 
 const Map = () => {
-    const [properties, setProperties] = useState([])
-    // const [fillColor, setFillColor] = useState([])
-    // const [strokeColor, setStrokeColor] = useState([])
+    const [stationsData, setStationsData] = useState([])
+    const [linesData, setLinesData] = useState([])
 
     useEffect(() => {
-       fetchProperties()
+        fetchData()
     }, [])
 
-    const fetchProperties = async () => {
-        const properties = await getProperties()
-        setProperties(properties)
+    const fetchData = async () => {
+        const propertiesData = await getProperties()
+        // console.log(propertiesData)
+        setStationsData(propertiesData)
+        
+        const linesData = await getLines()
+        // console.log(linesData)
+        setLinesData(linesData)
     }
-
-    if (!properties) {
+    
+    if (!stationsData) {
         return <p>en chargement</p>
     }
 
-    // Récupérer centre carte
-    let median_x = d3.median(properties, d => d.latitude);
-    let median_y = d3.median(properties, d => d.longitude);
-
-
-    // Container carte
-
-    // const width = 1175
-    // const height = 1218
-
-    const svg = d3.select("#mapContainer")
-        .append("svg")
-            .attr("viewBox", "-110 -110 200 200")
-            .attr("class", "mapContent")
-            .attr("preserveAspectRatio", "xMidYMid meet")
     
+    // Récupérer centre carte
+
+    let median_x = d3.median(stationsData, d => d.latitude);
+    let median_y = d3.median(stationsData, d => d.longitude);
+
 
     // Projection carte
 
     const projection = d3.geoMercator()
         .translate([0, 0])
         .scale(50000)
-        // .center([2.347438242705927, 48.86237146731491])
         .center([median_x, median_y])
-    
+
     const path = d3.geoPath(projection)
+    // console.log(path)
+
+    // Container carte
+
+    const svg = d3.select("#mapContainer")
+    .append("svg")
+        .attr("viewBox", "-110 -110 220 220")
+        .attr("preserveAspectRatio", "xMidYMid meet")
+        .attr("class", "map")
+
+    // const viewport = svg.append("g")
+    //     .attr("id", "viewport")
+    //     .attr("transform", "scale(1.5)")
+        // // .call(d3.behavior.zoom()
+        // //         .scale(1.5)
+        // //         .scaleExtent([0.9, 3])
+        // //         .on("zoom", function() {
+        // //             viewport.attr("transform",
+        // //                 "translate(" + d3.e.translate + ")" +
+        // //                 " scale(" + d3.e.scale + ")"
+        // //             );
+        // //         })
+        //         )
+
+
+    // Dessin
+
+    d3.json(parisMap).then(function(geojson) {
         
+        // contours de Paris
+        const paris = svg.append("g")
+            .selectAll("path")
+            .data(geojson.features)
+                .enter()
+                .append("path")
+                .attr("d", path)
+                .attr("class", "parisContainer") 
+                .lower() 
 
-    // fonction Couleur
+        // dessin des stations
 
-    const isHub = properties.map(property => property.isHub)
-    console.log(isHub)
     
-    const findStrokeColor = () => {    
-        if (isHub) {
-            return ("black") 
-        } else {
-            return ("red") 
-        }    
-    }
+            
 
-    const findFillColor = () => {  
-        if (isHub) {
-            return ("white") 
-        } else {
-            return ("black") 
-        } 
-    }
-    
+        const stations = svg.append("g")
+            .selectAll('circle')
+            .data(stationsData)
+                .join("circle")
+                .attr("transform", d => `translate(${projection([d.latitude, d.longitude])})`)
+                .attr("r", d => (d.range/3))
+                .attr("class", d => d.class)
+                .raise() 
+                .on("click", e => console.log(e))
+                .on('mouseover', function (d, i) {
+                    d3.select(this)
+                        .transition()
+                        .attr("r", 4)
+                    }
+                   
+                        // .enter().append("div")
+                        //     .attr("class", d => d.class)
+                        //     .text(e => e.target.value.name)
+                        //     .style("class", "stationName")
+                        //     // .style("left", (d3.event.pageX) + "px")		
+                        //     // .style("top", (d3.event.pageY - 28) + "px");	
+             
+               )
+                .on("mouseout", function (d, i) {
+                d3.select(this).transition()
+                    .attr("class", d => d.class)
+                    .attr("r", d => (d.range/3));
+                }); 
+                
+    });
 
-    // dessin des points
 
-    svg.append("g")
-        .selectAll('circle')
-        .data(properties)
-        .join("circle")
-            .attr("transform", d => `translate(${projection([d.latitude, d.longitude])})`)
-            .attr("r", 1)
-            .attr("fill", d => findFillColor(d))
-            .attr("stroke", d => findStrokeColor(d))
-          
+    // fusionner tableau lignes avec latitude / longitude du tableau station en fonction des noms 
+
+    const LinesPoints = linesData.map(line => {
+        const stationPosition = stationsData.find(station => line.paths.includes(station.keyName))
+        console.log(stationPosition)
+    })
+
 
     // dessin des lignes
-
-    // créer un tableau par ligne avec tous les noms des stations
-    const linesData = properties.map(property => property.lines)
-    console.log(linesData)
     
-    // const line = svg.line()
-    //     .interpolate("linear")
+    // svg.selectAll("path")
+    //     .data(stationsData)
+    //     .enter().append("path")
+    //     .attr("d", d3.geoPath(drawLine()))
+    //     .attr("stroke", "black");
 
-    // const drawLine = (data, projection) => {
-    //     return function(d) {
-    //       const points = d.linesData.map(function(s) { 
-    //         return projection([properties[s].latitude, properties[s].longitude]);
-    //       })
-    //       return line(points)
-    //     }
+
+    return (
+        <div id="mapContainer">
+
+        </div>   
+    );
+};
+
+export default Map;
+
+
+     // .style("color", function(d, i) {
+            //     return d > 10 ? "#ff0000" : "#000";
+            //   })
+            //   .text(function(d, i){
+            //       for (i=0; i<dataset.length; i++)
+            //       {
+            //           if(d > 10)
+            //           {
+            //             result = "black";
+            //            }
+            //            else
+            //            {
+            //             result = "white";
+            //            }
+            //       }
+            //       return result;
+            //   })
+
+
+    // const gen_branch = function(d) {
+    //     return d.linesData.map(function(p) { return {"key": key, "paths": p}; });
     // }
 
-    // var gen_branch = function(d) {
-    //     return d.linesData.map(function(p) { return {"key": d.key, "paths": p}; });
-    // }
 
     // container_lines.selectAll()
     //     .selectAll(".line")
@@ -119,18 +184,8 @@ const Map = () => {
     //     .data(gen_branch)
     //     .enter()
     //         .append("path")
-    //         .attr("class", branch_class)
-    //         .attr("d", drawLine(data, projection))
-    //         .on("mouseover", select_line)
-    //         .on("mouseout", deselect_line)
-    //         ;
-
-
-    return (
-        <div id="mapContainer">
-
-        </div>
-    );
-};
-
-export default Map;
+    //         .attr("stroke", "black")
+    //         // .attr("d", drawLine(properties, projection))
+    //         // .on("mouseover", select_line)
+    //         // .on("mouseout", deselect_line)
+            

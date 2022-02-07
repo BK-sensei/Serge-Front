@@ -1,10 +1,11 @@
+import "../styles/pages-style/gameboard.css"
+
 import Map from "../components/Map"
 
 const GameBoard = () => {
     return (
-        <div>
+        <div className="background">
             <Map/>
-            GameBoard
         </div>
     )
 }

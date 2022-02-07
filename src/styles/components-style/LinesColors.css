@@ -1,96 +1,127 @@
+.hub {
+    fill: rgb(240, 240, 240);
+    stroke: rgb(100, 100, 100);
+    stroke-width: 0.5;
+    background-color: rgb(255,255,255);
+}
+
+.railStation {
+    fill: rgb(0,0,0);
+    stroke: rgb(255,255,255);
+    stroke-width: 0.5;
+    /* background-image: url("../../images/logo-gare.svg");
+    background-position: center; */
+}
+
 .line_1 {
-    fill: rgb(242,201,49);
+    fill: rgba(242,201,49,0.5);
     stroke: rgb(242,201,49);
+    stroke-width: 0.5;
     background-color: rgb(242,201,49);
 }
 
 .line_2 {
-    fill: rgb(33,110,180);
+    fill: rgb(33,110,180,0.5);
     stroke: rgb(33,110,180);
+    stroke-width: 0.5;
     background-color: rgb(33,110,180);
 }
 
 .line_3 {
-    fill: rgb(154,153,64);
+    fill: rgb(154,153,64,0.5);
     stroke: rgb(154,153,64);
+    stroke-width: 0.5;
     background-color: rgb(154,153,64);
 }
 
 .line_3bis {
-    fill: rgb(137,199,214);
+    fill: rgb(137,199,214,0.5);
     stroke: rgb(137,199,214);
+    stroke-width: 0.5;
     background-color: rgb(137,199,214);
 }
 
 .line_4 {
-    fill: #AE5595;
-    stroke: #AE5595;
-    background-color: #AE5595;
+    fill: rgb(187,77,152,0.5);
+    stroke: rgb(187,77,152);
+    stroke-width: 0.5;
+    background-color: rgb(187,77,152);
 }
 
 .line_5 {
-    fill: rgb(222,139,83);
+    fill: rgb(222,139,83,0.5);
     stroke: rgb(222,139,83);
+    stroke-width: 0.5;
     background-color: rgb(222,139,83);
 }
 
 .line_6 {
-    fill: rgb(121,187,146);
+    fill: rgb(121,187,146,0.5);
     stroke: rgb(121,187,146);
+    stroke-width: 0.5;
     background-color: rgb(121,187,146);
 }
 
 .line_7 {
-    fill: rgb(223,154,177);
+    fill: rgb(223,154,177,0.5);
     stroke: rgb(223,154,177);
+    stroke-width: 0.5;
     background-color: rgb(223,154,177);
 }
 
 .line_7bis {
-    fill: rgb(121,187,146);
+    fill: rgb(121,187,146,0.5);
     stroke: rgb(121,187,146);
+    stroke-width: 0.5;
     background-color: rgb(121,187,146);
 }
 
 .line_8 {
-    fill: rgb(197,163,202);
+    fill: rgb(197,163,202,0.5);
     stroke: rgb(197,163,202);
+    stroke-width: 0.5;
     background-color: rgb(197,163,202);
 }
 
 .line_9 {
-    fill: rgb(205,200,63);
+    fill: rgb(205,200,63,0.5);
     stroke: rgb(205,200,63);
+    stroke-width: 0.5;
     background-color: rgb(205,200,63);
 }
 
 .line_10 {
-    fill: rgb(223,176,57);
+    fill: rgb(223,176,57,0.5);
     stroke: rgb(223,176,57);
+    stroke-width: 0.5;
     background-color: rgb(223,176,57);
 }
 
 .line_11 {
-    fill: rgb(142,101,56);
+    fill: rgb(142,101,56,0.5);
     stroke: rgb(142,101,56);
+    stroke-width: 0.5;
     background-color: rgb(142,101,56);
 }
 
 .line_12 {
-    fill: rgb(50,142,91);
+    fill: rgb(50,142,91,0.5);
     stroke: rgb(50,142,91);
+    stroke-width: 0.5;
     background-color: rgb(50,142,91);
 }
 
 .line_13 {
-    fill: rgb(137,199,214);
+    fill: rgb(137,199,214,0.5);
     stroke: rgb(137,199,214);
+    stroke-width: 0.5;
     background-color: rgb(137,199,214);
 }
 
 .line_14 {
-    fill: rgb(103,50,142);
+    fill: rgb(103,50,142,0.5);
     stroke: rgb(103,50,142);
+    stroke-width: 0.5;
     background-color: rgb(103,50,142);
 }
 
