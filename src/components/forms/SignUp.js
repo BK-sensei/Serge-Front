@@ -21,6 +21,7 @@ const SignUp = () => {
             avatar: ''
         },
         onSubmit: async (values, { setFielError }) => {
+            console.log("test")
             const { username, password } = values
 
             const response = await signUp({
@@ -49,6 +50,7 @@ const SignUp = () => {
         }),
         validateOnChange: false,
     })
+    console.log("errors", errors)
 
     return (
         <>
@@ -93,11 +95,12 @@ const SignUp = () => {
                             <img src={require('../../images/bunny-green.png')} className='bunny' alt='' />
                             <img src={require('../../images/bunny-purple.png')} className='bunny' alt='' />
                         </div>
-                    </form>
-                    <button 
+                        <button 
                         type='submit'
                         className='ok-btn'
                     >S'inscrire</button>
+                    </form>
+
                 </div>
             </div>
         </>
