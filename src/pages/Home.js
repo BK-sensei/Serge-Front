@@ -1,15 +1,12 @@
 import { Link } from 'react-router-dom'
 
-import TitleWebSite from '../components/TitleWebSite.js'
+import TitleWebSite from '../components/titles/TitleWebSite.js'
 import Login from '../components/forms/Login.js'
 
 import ('../styles/pages-style/home.css')
 
-
-
 const Home = () => {
     return (
-        <div>
         <div className='home-container'>
             <TitleWebSite />
 
@@ -26,7 +23,6 @@ const Home = () => {
                 </Link>
             </div>
         </div>
-    </div>
     )
 }
 

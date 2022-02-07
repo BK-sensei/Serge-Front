@@ -2,7 +2,7 @@ import {useContext} from 'react'
 import SideBar from '../components/SideBar';
 import { UserContext } from '../contexts/User';
 
-import ('../styles/pages-style/home.css')
+import ('../styles/pages-style/profile.css')
 
 
 const Profile = () => {
@@ -16,7 +16,7 @@ const Profile = () => {
                         <div className = 'profile-picture'>
                         </div>
                         <h2 className='user-title'>
-                            user 
+                            username 
                         </h2>
                     </div>
                     <div className='counter'>
@@ -25,14 +25,15 @@ const Profile = () => {
                                 2
                             </p>
                         </div>
-                        <div>
+                        <div className='card-counter'>
                             <p>
                                 1
                             </p>
                         </div>
                     </div>
                 </div>
-                <div className='cards-container'>                    
+                <div className='cards-container'>
+                    <h4 className='station-title'>stations</h4>                    
                     <div className='cards-map'>
                     </div>
                 </div>
