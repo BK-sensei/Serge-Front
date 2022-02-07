@@ -122,32 +122,38 @@ const Map = () => {
                         .attr("class", d => d.class)
                         .attr("r", d => (d.range/3));
                     }); 
-                
-        });
 
             // dessin des lignes
+            const line5 = {type: "LineString", coordinates: [[2.44962071744096, 48.9069699442981], [2.42480187771966, 48.8952689905167], [2.41328568033304, 48.893113981741]]}
+            const lines = {type: "MultiLineString", coordinates: [[[2.44962071744096, 48.9069699442981], [2.42480187771966, 48.8952689905167], [2.41328568033304, 48.893113981741]], [[2.29576268465124, 48.8744076036607], [2.2766480745793, 48.8716448024995]]]}
 
-             // fusionner tableau lignes avec latitude / longitude du tableau station en fonction des noms 
-
-            linesData.forEach(line => {
-                const findStations = stationsData.find(station => station.keyName === line.paths[0][0])
-                    // console.log(findStations)
-                const stationPosition = [findStations.keyName,findStations.latitude,findStations.longitude]
-                    console.log(stationPosition)
-            })
-           
-
-            const line5 = {type: "LineString", coordinates: [[2.44962071744096, 48.9069699442981], [2.42480187771966, 48.8952689905167]]}
             const drawLines = d3.geoPath()
                 .projection(projection)
                 
+            svg.append("path")
+                // .data(linesData)
+                .attr("d", drawLines(lines))
+                .attr("stroke", "black")
+                .style("fill", "none")
+                .style("stroke-width", 1) 
+                
+        });
 
-            // svg.append("path")
-            //     .data(linesData)
-            //     .attr("d", d => drawLines(linesData))
-            //     .attr("class", "line_5")
-            //     .style("stroke-width", 1)
-        
+            
+
+             // fusionner tableau lignes avec latitude / longitude du tableau station en fonction des noms 
+
+            linesData.forEach((line, index) => {
+                const findStations = stationsData.find(station => station.keyName === line.paths[0][index])
+                console.log(findStations)
+                  if (findStations) {
+                        return[findStations.keyName,findStations.latitude,findStations.longitude]
+                  }
+                    
+            })
+           
+
+           
             
             // svg.selectAll("path")
             //     .data(stationsData)
