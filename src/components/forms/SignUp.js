@@ -21,16 +21,9 @@ const SignUp = () => {
             balance: 1500
             // avatar: ''
         },
-<<<<<<< HEAD
-        onSubmit: async (values, { setFielError }) => {
-            console.log("test")
-            const { username, password } = values
-            console.log("coucou")
-=======
         onSubmit: async (values, { setFieldError }) => {
             const { username, email, password, balance } = values
 
->>>>>>> ad03c87fabf1aae78a37a9ffb79c5606a2ab61ab
             const response = await signUp({
                 username,
                 password,

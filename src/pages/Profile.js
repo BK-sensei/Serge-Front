@@ -3,13 +3,14 @@ import { UserContext } from '../contexts/User';
 
 import SideBar from '../components/SideBar';
 import SergeSubway from '../components/titles/SergeSubway';
+import { createRoutesFromChildren } from 'react-router-dom';
 
 import ('../styles/pages-style/profile.css')
 
 
 const Profile = () => {
-    const {user} = useContext(UserContext)
-    console.log(user)
+    const  { user, setUser } = useContext(UserContext)
+    console.log("user",user)
     return (
         <div className='page-container'>
             <div className = 'profile-container'>
@@ -18,18 +19,18 @@ const Profile = () => {
                         <div className = 'profile-picture'>
                         </div>
                         <h2 className='user-title'>
-                            username 
+                            {user.username} 
                         </h2>
                     </div>
                     <div className='counter'>
                         <div className='card-counter'>
                             <p>
-                                2
+                                {/* {user.property.length} */}
                             </p>
                         </div>
                         <div className='card-counter'>
                             <p>
-                                1
+                                {/* {user.cards.length} */}
                             </p>
                         </div>
                     </div>
