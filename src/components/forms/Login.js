@@ -14,7 +14,7 @@ const Login = () => {
 
     const { values, errors, handleSubmit, handleChange } = useFormik({
         initialValues: {
-            email: '',
+            username: '',
             password: ''
         },
         onSubmit: async (values, { setFieldError }) => {
@@ -23,12 +23,13 @@ const Login = () => {
                 setUser(response)
                 navigate('/gameboard')
             } catch (err) {
+                console.log(err);
                 setFieldError('submit', 'Incorrect username/password')
             }
         },
         validationSchema: Yup.object({
-            email: Yup.string()
-            .required('Pseudo obligatoire'),
+            username: Yup.string()
+            .required('Email obligatoire'),
             password: Yup.string()
             .required('Mot de passe obligatoire')
             .min(8, 'Votre mot de passe est trop court')
@@ -36,6 +37,7 @@ const Login = () => {
         validateOnChange: false
     })
 
+    console.log(errors)
 
     return (
         <>
@@ -45,8 +47,8 @@ const Login = () => {
                     <form onSubmit={handleSubmit}>
                         <label>Email</label>
                         <input
-                            type="email"
-                            name="email"
+                            type="text"
+                            name="username"
                             // placeholder='serge@subway.com'
                             onChange={handleChange}
                             value={values.username}
@@ -60,11 +62,11 @@ const Login = () => {
                             value={values.password}
                             error={errors.password}
                         />
+                        <button 
+                            type='submit'
+                            className='ok-btn'
+                        >OK</button>
                     </form>
-                    <button 
-                        type='submit'
-                        className='ok-btn'
-                    >OK</button>
                 </div>
             </div>
         </>

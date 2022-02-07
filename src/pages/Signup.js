@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import TitleWebSite from '../components/TitleWebSite.js'
+import TitleWebSite from '../components/titles/TitleWebSite.js'
 import SignUp from '../components/forms/SignUp.js'
 
 import ('../styles/pages-style/home.css')
