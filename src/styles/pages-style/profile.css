@@ -1,0 +1,58 @@
+/* style  userpage */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fascinate Inline', cursive;
+}
+
+.page-container {
+    background-color: #C7E4EE;
+    display: flex;
+    width: 100%;
+}
+
+.profile-container {
+    margin : 10%;
+}
+
+.header {
+    margin : 10%;
+}
+.title {
+    display: flex;
+}
+.profile-picture {
+    height : 100px;
+    width : 100px;
+    border-radius: 50%;
+    background-color: #97C5D4;
+    background-image: url(../../../public/images/bunny-pink.png);
+}
+.user-title{
+    /* position: absolute;
+    left: 11.34%;
+    right: 44.1%; */
+    /* top: 6.71%;
+    bottom: 90.15%; */
+
+    font-family: Fascinate Inline;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 64px;
+
+    color: #000000;
+}
+
+.cards-container{
+    background-color: #F4F4C9;
+    height : 80%;
+    width : 45%;
+}
+.footer {
+    display: flex;
+}

@@ -1,16 +1,13 @@
 import React from 'react'
 import TitleWebSite from '../components/TitleWebSite.js'
+
 import ('../styles/pages-style/home.css')
 
 
-import SideBar from '../components/SideBar'
 
 const Home = () => {
     return (
-<<<<<<< HEAD
         <div>
-            <SideBar/>
-=======
         <div className='home-container'>
             <TitleWebSite />
 
@@ -42,8 +39,8 @@ const Home = () => {
                     className='signup-btn'
                 >Inscription</button>
             </div>
->>>>>>> f738fa84f8e301db73f226249a7b60eedb0dfde3
         </div>
+    </div>
     )
 }
 
