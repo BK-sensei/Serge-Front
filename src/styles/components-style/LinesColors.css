@@ -14,36 +14,36 @@
 }
 
 .line_1 {
-    fill: rgba(242,201,49,0.5);
-    stroke: rgb(242,201,49);
+    fill: rgb(242,201,49);
+    stroke: rgb(196, 162, 39);
     stroke-width: 0.5;
     background-color: rgb(242,201,49);
 }
 
 .line_2 {
-    fill: rgb(33,110,180,0.5);
-    stroke: rgb(33,110,180);
+    fill: rgb(33,110,180);
+    stroke: rgb(22, 70, 116);
     stroke-width: 0.5;
     background-color: rgb(33,110,180);
 }
 
 .line_3 {
-    fill: rgb(154,153,64,0.5);
-    stroke: rgb(154,153,64);
+    fill: rgb(154,153,64);
+    stroke: rgb(117, 116, 48);
     stroke-width: 0.5;
     background-color: rgb(154,153,64);
 }
 
 .line_3bis {
-    fill: rgb(137,199,214,0.5);
-    stroke: rgb(137,199,214);
+    fill: rgb(137,199,214);
+    stroke: rgb(104, 153, 165);
     stroke-width: 0.5;
     background-color: rgb(137,199,214);
 }
 
 .line_4 {
-    fill: rgb(187,77,152,0.5);
-    stroke: rgb(187,77,152);
+    fill: rgb(187,77,152);
+    stroke: rgb(143, 58, 116);
     stroke-width: 0.5;
     background-color: rgb(187,77,152);
 }
