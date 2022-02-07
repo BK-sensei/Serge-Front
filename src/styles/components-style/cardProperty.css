@@ -2,7 +2,7 @@
     display: inline-block;
     width: 221px;
     height: 311px;
-    background: #c58383;
+    background: #ffffff;
     box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
 }
@@ -16,15 +16,19 @@
 .cardContent {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
 }
 
 .titleContent{
     display: flex;
     flex-direction: column;
-    text-align: center;
+    align-items: center;
     color: white; 
     background-color: black; 
+    width: 100%;
+    height: 70px;
+    padding: 10px;
 }
 
 .titleType {
@@ -40,4 +44,23 @@
     font-size: 14px;
     font-weight: 900;
     /* line-height: 19px;      */
+}
+
+.listContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+li {
+    list-style: none;
+    font-family: "Enriqueta";
+    font-size: 10px;
+    font-weight: 400;
+    text-align: left;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
 }
