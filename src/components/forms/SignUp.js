@@ -18,20 +18,23 @@ const SignUp = () => {
             email: '',
             password: '',
             passwordConfirmation: '',
-            avatar: ''
+            balance: 1500
+            // avatar: ''
         },
-        onSubmit: async (values, { setFielError }) => {
-            const { username, password } = values
+        onSubmit: async (values, { setFieldError }) => {
+            const { username, email, password, balance } = values
 
             const response = await signUp({
                 username,
-                password
+                password,
+                email,
+                balance
             })
 
             if (response.error) {
-                setFielError('submit', response.error)
+                setFieldError('submit', response.error)
             } else {
-                const user = await logIn({ username, password })
+                const user = await logIn({ username: email, password })
                 setUser(user)
                 navigate('/gameboard')
             }
@@ -68,6 +71,9 @@ const SignUp = () => {
                         <input
                             type="email"
                             name='email'
+                            onChange={handleChange}
+                            value ={values.email}
+                            error={errors.email}
                         />
                         <label>Mot de passe</label>
                         <input
