@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+import { ModalContextProvider } from './contexts/Modal'
 import { UserProvider } from './contexts/User'
 
 import Home from './pages/Home'
@@ -14,16 +15,18 @@ import NotFound from './pages/NotFound'
 const App = () => {
   return (
     <BrowserRouter>
-      <UserProvider>
-        <Routes>
-            <Route exact path="/" element={ <Home /> } />
-            <Route path="/signup" element={ <Signup /> } />
-            <Route path="/gameboard" element={ <GameBoard /> } />
-            <Route path="/profile" element={ <Profile /> } />
-            <Route path="/auction-room" element={ <AuctionRoom /> } />
-            <Route path="*" element={ <NotFound /> } />
-        </Routes>
-      </UserProvider>
+      <ModalContextProvider>
+        <UserProvider>
+          <Routes>
+              <Route exact path="/" element={ <Home /> } />
+              <Route path="/signup" element={ <Signup /> } />
+              <Route path="/gameboard" element={ <GameBoard /> } />
+              <Route path="/profile" element={ <Profile /> } />
+              <Route path="/auction-room" element={ <AuctionRoom /> } />
+              <Route path="*" element={ <NotFound /> } />
+          </Routes>
+        </UserProvider>
+      </ModalContextProvider>
     </BrowserRouter>
   )
 }

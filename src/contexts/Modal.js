@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { createContext, useState } from 'react'
 
-const Modal = () => {
+const ModalContext = createContext({ })
+
+const ModalContextProvider = ({ children }) => {
+    const [visible, setVisible] = useState(false)
+    const [modalType, setModalTyep] = useState(null)
+
+    const value = {
+        visible,
+        setVisible,
+        modalType,
+        setModalTyep
+    }
+
     return (
-        <div>
-            Modal
-        </div>
+        <ModalContext.Provider value={value}>
+            {children}
+        </ModalContext.Provider>
     )
 }
 
-export default Modal;
+export {
+    ModalContext,
+    ModalContextProvider
+}
