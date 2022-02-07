@@ -25,11 +25,59 @@
 .flex {
     display: flex;
 }
+.elements{
+    width: 80%;
+    justify-content: space-evenly;
+}
 
 /* LIST OF AUCTIONS */
+.auctionList-container{
+    width: 35%;
+    background: #F5EDC7;
+    border: 5px solid #E1BF00;
+    border-radius: 30px;
+}
+.listAuction{
+    color: black;
+    font-size: 25px;
+}
+
+.nft{
+    color: #F9BA2D;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #88673F;
+}
+
+.amelioration{
+    width: 30px;
+    height: 30px;
+}
+
+.list{
+    justify-content: space-around;
+    align-items: center;
+}
+
+.line{
+    width: 30px;
+    height: 30px;
+    align-self: center;
+    background-color: #97C5D4;
+    border-radius: 50%;
+    padding: 10px;
+}
+.station{
+    gap: 20px;
+    margin-bottom: 5px;
+}
+
+.timeLeft{
+    align-self: flex-end;
+}
 
 /* CURRENT AUCTION */
 .currentAuction-container{
+    width: 50%;
     background: #AD3838;
     border: 5px solid #E1BF00;
     box-sizing: border-box;
@@ -37,7 +85,7 @@
 }
 .currentAuction {
     color: #FFFBEF;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .time {
@@ -56,7 +104,7 @@
 }
 
 .cards{
-    margin: 25px 100px;
+    margin: 25px 0px;
 }
 .bg-cards{
     width: 360px;

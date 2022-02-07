@@ -1,7 +1,7 @@
 import React from 'react'
 
 import AuctionTitle from '../components/titles/AuctionTitle'
-import List from '../components/List'
+import List from '../components/lists/AuctionList'
 import Auction from '../components/Auction'
 import SergeSubway from '../components/titles/SergeSubway'
 import SideBar from '../components/SideBar'
@@ -13,7 +13,7 @@ const AuctionRoom = () => {
         <div className='auctionRoom-container'>
             <div>
                 <AuctionTitle />
-                <div className='flex'>
+                <div className='flex elements'>
                     <List />
                     <Auction />
                 </div>
