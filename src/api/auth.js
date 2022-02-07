@@ -19,7 +19,7 @@ const logIn = async ({ username, password }) => {
     return data
 }
 
-const signUp = async ({ username, email, password }) => {
+const signUp = async ({ username, password, email, balance }) => {
     const signupResponse = await fetch(`http://localhost:5000/auth/signup`, {
         method: 'post',
         headers: {
@@ -28,8 +28,9 @@ const signUp = async ({ username, email, password }) => {
         credentials: 'include',
         body: JSON.stringify({
             username,
+            password,
             email,
-            password
+            balance
         })
     })
 
