@@ -44,7 +44,6 @@ const getMe = async () => {
         },
         credentials: 'include',
     })
-
     const data = getmeResponse.json()
     return data
 }

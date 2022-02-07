@@ -1,6 +1,8 @@
 import {useContext} from 'react'
-import SideBar from '../components/SideBar';
 import { UserContext } from '../contexts/User';
+
+import SideBar from '../components/SideBar';
+import SergeSubway from '../components/titles/SergeSubway';
 
 import ('../styles/pages-style/profile.css')
 
@@ -38,8 +40,7 @@ const Profile = () => {
                     </div>
                 </div>
                 <div className='footer'>
-                    <img src = '../../../public/images/bunny-pink.png'></img>
-                    <p>Serge Subway</p>
+                <SergeSubway/>
                 </div>
             </div>
             <SideBar/>
