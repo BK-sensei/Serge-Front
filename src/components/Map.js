@@ -6,6 +6,7 @@ import { getLines } from '../api/lines'
 import "../styles/components-style/linesColors.css"
 import "../styles/components-style/map.css"
 import parisMap from '../images/arrondissements.geojson'
+import geoLines from "../api/geoLines.json"
 
 // const lodash = require("lodash")
 
@@ -81,7 +82,7 @@ const Map = () => {
 
 
 
-        // Dessin
+        // Dessin de la carte
 
         d3.json(parisMap).then(function(geojson) {   
             // contours de Paris
@@ -92,7 +93,20 @@ const Map = () => {
                     .append("path")
                     .attr("d", path)
                     .attr("class", "parisContainer") 
-                    .lower() 
+                    .lower()
+
+            // dessin des lignes
+            const drawLines = d3.geoPath()
+            .projection(projection)
+
+            geoLines.forEach(geoLine => {
+                svg.append("path")
+                    // .data(linesData)
+                    .attr("d", drawLines(geoLine))
+                    .attr("stroke", geoLine.color)
+                    .style("fill", "none")
+                    .style("stroke-width", 1)
+            })
 
             // dessin des stations
             const stations = svg.append("g")
@@ -108,68 +122,24 @@ const Map = () => {
                         d3.select(this)
                             .transition()
                             .attr("r", 4)
-                        }
-                            // .enter().append("div")
-                            //     .attr("class", d => d.class)
-                            //     .text(e => e.target.value.name)
-                            //     .style("class", "stationName")
-                            //     // .style("left", (d3.event.pageX) + "px")		
-                            //     // .style("top", (d3.event.pageY - 28) + "px");	
-                
-                    )
+                    })
                     .on("mouseout", function (d, i) {
                     d3.select(this).transition()
                         .attr("class", d => d.class)
                         .attr("r", d => (d.range/3));
                     }); 
 
-            // dessin des lignes
-            const line5 = {type: "LineString", coordinates: [[2.44962071744096, 48.9069699442981], [2.42480187771966, 48.8952689905167], [2.41328568033304, 48.893113981741]]}
-            const lines = {type: "MultiLineString", coordinates: [[[2.44962071744096, 48.9069699442981], [2.42480187771966, 48.8952689905167], [2.41328568033304, 48.893113981741]], [[2.29576268465124, 48.8744076036607], [2.2766480745793, 48.8716448024995]]]}
-
-            const drawLines = d3.geoPath()
-                .projection(projection)
-                
-            svg.append("path")
-                // .data(linesData)
-                .attr("d", drawLines(lines))
-                .attr("stroke", "black")
-                .style("fill", "none")
-                .style("stroke-width", 1) 
-                
+     
         });
-
-            
-
-             // fusionner tableau lignes avec latitude / longitude du tableau station en fonction des noms 
-
-            linesData.forEach((line, index) => {
-                const findStations = stationsData.find(station => station.keyName === line.paths[0][index])
-                console.log(findStations)
-                  if (findStations) {
-                        return[findStations.keyName,findStations.latitude,findStations.longitude]
-                  }
-                    
-            })
-           
-
-           
-            
-            // svg.selectAll("path")
-            //     .data(stationsData)
-            //     .enter().append("path")
-            //     .attr("d", d3.geoPath(drawLine()))
-            //     .attr("stroke", "black");
-
-           
-
     }
     
     
     return (
-        <div id="mapContainer">
-
-        </div>   
+        <div className="background">
+            <div id="mapContainer">
+            </div>  
+        </div>
+         
     );
 };
 
