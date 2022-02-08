@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import { useContext } from 'react'
+import { UserContext } from '../contexts/User'
 import * as d3 from "d3";
 
 import { getProperties } from '../api/properties'
@@ -11,6 +13,7 @@ import geoLines from "../api/geoLines.json"
 // const lodash = require("lodash")
 
 const Map = () => {
+    const { user } = useContext(UserContext)
     const [stationsData, setStationsData] = useState([])
     const [linesData, setLinesData] = useState([])
     const [mapCreated, setMapCreated] = useState(false)
@@ -36,7 +39,6 @@ const Map = () => {
         const linesData = await getLines()
         // console.log(linesData)
         setLinesData(linesData)
-
     }
 
 
@@ -121,35 +123,49 @@ const Map = () => {
                         .attr("r", d => (d.range/3));
                     }); 
            
-             
+            // zoom
+            const userPosition = svg.append('circle')
+                // .attr('src', `${require('../images/logos/logo-nft-serge.png')}`)
+                .attr('width', 50)
+                .attr('height', 50)
+                .attr("r", 2)
+                .attr('fill', 'red')
+                // .attr('x', 2.38244550268222)
+                // .attr('y', 48.8949061258374)
+                .attr("transform", `translate(${projection([2.38244550268222, 48.8949061258374])})`)
+                .raise()
+
      
-                // zoom
-                
-                svg.call(d3.zoom()
-                    .extent([[0, 0], [280, 280]])
-                    .scaleExtent([1, 8])
-                    .on("zoom", zoomed));
-          
-                function zoomed({transform}) {
-                    g.attr("transform", transform);
-                    g.attr("stroke-width", 0,5 / Math.sqrt(transform.k));
-                    stations.attr("r", d => (d.range/ 3 / Math.sqrt(transform.k)));
-                    // stations.on('mouseover', function (d, i) {
-                    //     d3.select(this)
-                    //         .transition()
-                    //         .attr("r", 2)
-                    //         .attr("cursor", "pointer")
-                    // })
-                    // stations.on("mouseout", function (d, i) {
-                    // d3.select(this).transition()
-                    //     .attr("r", d => (d.range / 3 / Math.sqrt(transform.k)));
-                    // });
-                }
+            // zoom
+            
+            svg.call(d3.zoom()
+                .extent([[0, 0], [280, 280]])
+                .scaleExtent([1, 8])
+                .on("zoom", zoomed));
+        
+            function zoomed({transform}) {
+                g.attr("transform", transform);
+                g.attr("stroke-width", 0,5 / Math.sqrt(transform.k));
+                stations.attr("r", d => (d.range/ 3 / Math.sqrt(transform.k)));
+                // stations.on('mouseover', function (d, i) {
+                //     d3.select(this)
+                //         .transition()
+                //         .attr("r", 2)
+                //         .attr("cursor", "pointer")
+                // })
+                // stations.on("mouseout", function (d, i) {
+                // d3.select(this).transition()
+                //     .attr("r", d => (d.range / 3 / Math.sqrt(transform.k)));
+                // });
+            }
         });
 
-       
     }
-    
+
+    // const moveUser = () => {
+    //     svg.append("img")
+    // }
+            
     
     return (
         <div className="background">

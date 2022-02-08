@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-// import ItemProperties from './ItemProperties'
+import ItemProperties from '../ItemProperties'
 
 const Container = styled.div`
     background: #F5EEC7;
@@ -42,22 +42,13 @@ const CardsList = () => {
     return (
         <Container>
             <List>
-                <h3>Truc</h3>
-                <h3>Truc</h3>
-                <h3>Truc</h3>
-                <h3>Truc</h3>
-                <h3>Truc</h3>
-                <h3>Truc</h3>
-                <h3>Truc</h3>
-                <h3>Truc</h3>
-                <h3>Truc</h3>
-                <h3>Truc</h3>
-                <h3>Truc</h3>
-                <h3>Truc</h3>
-                <h3>Truc</h3>
-                <h3>Truc</h3>
-               
-                {/* <ItemProperties/> */}
+                <ItemProperties/>
+                <ItemProperties/>
+                <ItemProperties/>
+                <ItemProperties/>
+                <ItemProperties/>
+                <ItemProperties/>
+                <ItemProperties/>
             </List>            
         </Container>
     );
