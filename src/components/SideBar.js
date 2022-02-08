@@ -7,6 +7,7 @@ import CardsList from '../components/lists/CardsList'
 import Dice from '../components/Dice'
 import AuctionButton from './buttons/AuctionButton'
 import RankingButton from './buttons/RankingButton'
+import ModalContainer from './modals/ModalContainer';
 
 
 const Container = styled.div`
@@ -41,8 +42,11 @@ const SideBar = () => {
             </div>
             <Dice/>
             <Buttons >
-                <AuctionButton/>
+                <Link to="/auction-room">
+                    <AuctionButton/>
+                </Link>
                 <RankingButton/>
+                <ModalContainer />
             </Buttons >
         </Container>
     );
