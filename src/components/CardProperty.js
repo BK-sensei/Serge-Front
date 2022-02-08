@@ -1,4 +1,5 @@
 import "../styles/components-style/cardProperty.css"
+import ButtonBuy from '../components/buttons/ButtonBuy'
 
 const CardProperty = () => {
     return (
@@ -8,40 +9,77 @@ const CardProperty = () => {
 
                     <div className="titleContent">
                         <p className="titleType">Titre de propriété</p>
-                        <p className="titleProperty">Titre de propriété</p>
+                        <h4 className="titleProperty">Titre de propriété</h4>
                     </div>
 
                     <div className="listContent">
                         <ul>
                             <li>
-                                <p>Valeur NFT</p>
-                                <p>8000 $</p>
+                                <div className="liStart">
+                                    <img class="logo-upgrade" src={require('../images/logos/logo-nft-serge.png')} alt="logo-nft"/>
+                                    <p>Valeur NFT</p>
+                                </div>
+                                <p className="bold">8000 $</p>
                             </li>
                             <li>
-                                <p>Taxe de passage</p>
-                                <p>600 $</p>
+                                <div className="liStart">
+                                    <img class="logo-upgrade" src={require('../images/logos/ticket.png')} alt="metro-ticket"/>
+                                    <p>Taxe de passage</p>
+                                </div>
+                                <p className="bold">600 $</p>
                             </li>
                         </ul>
                         <ul>
                             <li>
-                                <p>Distributeur</p>
-                                <p>800 $</p>
+                                <div className="liStart">
+                                    <img class="logo-upgrade" src={require('../images/ameliorations/vending-machine.png')} alt="vending-machine"/>
+                                    <p>Distributeur</p>
+                                </div>
+                                <p className="bold">800 $</p>
                             </li>
                             <li>
-                                <p>Boutique</p>
-                                <p>4000 $</p>
+                                <div className="liStart">
+                                    <img class="logo-upgrade" src={require('../images/ameliorations/shop.png')} alt="shop"/>
+                                    <p>Boutique</p>
+                                </div>
+                                <p className="bold">4000 $</p>
                             </li>
                             <li>
-                                <p>Centre commercial</p>
-                                <p>8000 $</p>
+                                <div className="liStart">
+                                    <img class="logo-upgrade" src={require('../images/ameliorations/monument.png')} alt="monument"/>
+                                    <p>Monument</p>
+                                </div>
+                                <p className="bold">8000 $</p>
                             </li>
                         </ul>
+                        <div className="infosOwner">
+                            <div>
+                                <p>Propriétaire :</p>
+                                <p className="bold" style={{marginTop: 8}}>Aucun</p>
+                            </div>
+                            <ButtonBuy> 
+                                <button className="buttonBuy" type="button">Acheter</button>
+                            </ButtonBuy> 
+                        </div>
                     </div>
                     
-                    <div className="buttons">
-                        <button type="button">Améliorer</button>
-                        <button type="button">Vendre</button>
-                    </div>
+                    
+                    {/* { property.owner === user &&
+                        <div className="buttons">
+                            <button className="buttonUpgrade" type="button">Améliorer</button>
+                            <button className="buttonSell" type="button">Vendre</button>
+                        </div> 
+                    }  */}
+
+                    {/* { (property.owner =! "" && property.owner =! user) &&
+                        <div>
+                            <img src={property.owner.pictureUrl} alt="profile-pic"/> 
+                            <p>{property.owner}</p>
+                        </div> 
+                    }  */}
+
+                        
+
 
                 </div>
             </div>       

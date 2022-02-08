@@ -1,11 +1,11 @@
 import React from 'react';
 
-const List = () => {
+const ButtonMap = () => {
     return (
         <div>
-            List
+            
         </div>
     );
 };
 
-export default List;
+export default ButtonMap;

@@ -36,6 +36,7 @@ const Map = () => {
         const linesData = await getLines()
         // console.log(linesData)
         setLinesData(linesData)
+
     }
 
 
@@ -62,32 +63,20 @@ const Map = () => {
 
         const svg = d3.select("#mapContainer")
             .append("svg")
-                .attr("viewBox", "-110 -110 220 220")
-                .attr("preserveAspectRatio", "xMidYMid meet")
+                .attr("viewBox", "-110 -130 260 260")
+                // .attr("preserveAspectRatio", "xMidYMid meet")
                 .attr("class", "map")
-
-        // const viewport = svg.append("g")
-        //     .attr("id", "viewport")
-        //     .attr("transform", "scale(1.5)")
-            // // .call(d3.behavior.zoom()
-            // //         .scale(1.5)
-            // //         .scaleExtent([0.9, 3])
-            // //         .on("zoom", function() {
-            // //             viewport.attr("transform",
-            // //                 "translate(" + d3.e.translate + ")" +
-            // //                 " scale(" + d3.e.scale + ")"
-            // //             );
-            // //         })
-            //         )
-
-
+        
 
         // Dessin de la carte
 
-        d3.json(parisMap).then(function(geojson) {   
+        d3.json(parisMap).then(function(geojson) { 
+            
+            const g = svg.append("g")
+
             // contours de Paris
-            const paris = svg.append("g")
-                .selectAll("path")
+            const paris = 
+                g.selectAll("path")
                 .data(geojson.features)
                     .enter()
                     .append("path")
@@ -100,7 +89,7 @@ const Map = () => {
             .projection(projection)
 
             geoLines.forEach(geoLine => {
-                svg.append("path")
+                g.append("path")
                     // .data(linesData)
                     .attr("d", drawLines(geoLine))
                     .attr("stroke", geoLine.color)
@@ -109,12 +98,13 @@ const Map = () => {
             })
 
             // dessin des stations
-            const stations = svg.append("g")
-                .selectAll('circle')
+            const stations = 
+                g.selectAll('circle')
                 .data(stationsData)
                     .join("circle")
                     .attr("transform", d => `translate(${projection([d.latitude, d.longitude])})`)
                     .attr("r", d => (d.range/3))
+                    .attr("stroke-width", 0.4)
                     .attr("class", d => d.class)
                     .raise() 
                     .on("click", e => console.log(e))
@@ -122,15 +112,37 @@ const Map = () => {
                         d3.select(this)
                             .transition()
                             .attr("r", 4)
+                            .attr("cursor", "pointer")
                     })
                     .on("mouseout", function (d, i) {
                     d3.select(this).transition()
                         .attr("class", d => d.class)
                         .attr("r", d => (d.range/3));
                     }); 
-
      
+                svg.call(d3.zoom()
+                    .extent([[0, 0], [280, 280]])
+                    .scaleExtent([1, 8])
+                    .on("zoom", zoomed));
+          
+                function zoomed({transform}) {
+                    g.attr("transform", transform);
+                    g.attr("stroke-width", 0,5 / Math.sqrt(transform.k));
+                    stations.attr("r", d => (d.range/3 / Math.sqrt(transform.k)));
+                    stations.on('mouseover', function (d, i) {
+                        d3.select(this)
+                            .transition()
+                            .attr("r", 2)
+                            .attr("cursor", "pointer")
+                    })
+                    stations.on("mouseout", function (d, i) {
+                    d3.select(this).transition()
+                        .attr("r", d => (d.range / 3 / Math.sqrt(transform.k)));
+                    });
+                }
         });
+
+       
     }
     
     

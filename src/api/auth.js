@@ -1,12 +1,12 @@
-const logIn = async ({ email, password }) => {
-    const loginResponse = await fetch('http://localhost:5000/auth/login', {
+const logIn = async ({ username, password }) => {
+    const loginResponse = await fetch(`http://localhost:5000/auth/login`, {   
         method: 'post',
         headers: {
             'Content-type': 'application/json'
         },
         credentials: 'include',
         body: JSON.stringify({
-            email,
+            username,
             password
         })
     })
@@ -19,8 +19,8 @@ const logIn = async ({ email, password }) => {
     return data
 }
 
-const signUp = async ({ username, email, password }) => {
-    const signupResponse = await fetch('http://localhost:5000/auth/signup', {
+const signUp = async ({ username, password, email, balance }) => {
+    const signupResponse = await fetch(`http://localhost:5000/auth/signup`, {
         method: 'post',
         headers: {
             'Content-type': 'application/json'
@@ -28,8 +28,9 @@ const signUp = async ({ username, email, password }) => {
         credentials: 'include',
         body: JSON.stringify({
             username,
+            password,
             email,
-            password
+            balance
         })
     })
 
@@ -38,19 +39,18 @@ const signUp = async ({ username, email, password }) => {
 }
 
 const getMe = async () => {
-    const getmeResponse = await fetch('http://localhost:5000/auth/me', {
+    const getmeResponse = await fetch(`${process.env.REACT_APP_API_URL}/auth/me`, {
         headers: {
             'Content-type': 'application/json'
         },
         credentials: 'include',
     })
-
     const data = getmeResponse.json()
     return data
 }
 
 const logOut = async () => {
-    const logoutResponse = await fetch('http://localhost:5000/auth/logout', {
+    const logoutResponse = await fetch(`${process.env.REACT_APP_API_URL}`, {
         method: 'delete',
         headers: {
             'Content-type': 'application/json'
