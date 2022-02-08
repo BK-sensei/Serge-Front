@@ -8,7 +8,7 @@ const GameBoard = () => {
     return (
         <div>
             <p>GameBoard</p>
-            <Link to ='/Profile'>
+            <Link to ='/testauction'>
                 <p>user</p>
             </Link>
         </div>
