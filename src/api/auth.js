@@ -45,7 +45,7 @@ const getMe = async () => {
         },
         credentials: 'include',
     })
-    const data = getmeResponse.json()
+    const data = await getmeResponse.json()
     return data
 }
 
@@ -58,7 +58,7 @@ const logOut = async () => {
         credentials: 'include',
     })
 
-    const data = logoutResponse.json()
+    const data = await logoutResponse.json()
     return data
 }
 

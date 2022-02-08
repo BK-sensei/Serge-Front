@@ -134,16 +134,16 @@ const Map = () => {
                     g.attr("transform", transform);
                     g.attr("stroke-width", 0,5 / Math.sqrt(transform.k));
                     stations.attr("r", d => (d.range/ 3 / Math.sqrt(transform.k)));
-                    stations.on('mouseover', function (d, i) {
-                        d3.select(this)
-                            .transition()
-                            .attr("r", 2)
-                            .attr("cursor", "pointer")
-                    })
-                    stations.on("mouseout", function (d, i) {
-                    d3.select(this).transition()
-                        .attr("r", d => (d.range / 3 / Math.sqrt(transform.k)));
-                    });
+                    // stations.on('mouseover', function (d, i) {
+                    //     d3.select(this)
+                    //         .transition()
+                    //         .attr("r", 2)
+                    //         .attr("cursor", "pointer")
+                    // })
+                    // stations.on("mouseout", function (d, i) {
+                    // d3.select(this).transition()
+                    //     .attr("r", d => (d.range / 3 / Math.sqrt(transform.k)));
+                    // });
                 }
         });
 
