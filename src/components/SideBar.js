@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
 import ProfileButton from './buttons/ProfileButton'
@@ -7,6 +7,7 @@ import CardsList from '../components/lists/CardsList'
 import Dice from '../components/Dice'
 import AuctionButton from './buttons/AuctionButton'
 import RankingButton from './buttons/RankingButton'
+import ModalContainer from './modals/ModalContainer';
 
 
 const Container = styled.div`
@@ -33,14 +34,19 @@ const SideBar = () => {
     return (
         <Container>
             <div>
-                <ProfileButton/>
+                <Link to="/profile">
+                    <ProfileButton/>
+                </Link>
                 <BankAccount/>
                 <CardsList/>
             </div>
             <Dice/>
             <Buttons >
-                <AuctionButton/>
+                <Link to="/auction-room">
+                    <AuctionButton/>
+                </Link>
                 <RankingButton/>
+                <ModalContainer />
             </Buttons >
         </Container>
     );

@@ -3,7 +3,6 @@ import { UserContext } from '../contexts/User';
 
 import SideBar from '../components/SideBar';
 import SergeSubway from '../components/titles/SergeSubway';
-import { createRoutesFromChildren } from 'react-router-dom';
 
 import ('../styles/pages-style/profile.css')
 

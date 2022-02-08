@@ -136,28 +136,28 @@ const Map = () => {
                 .raise()
 
      
-            // zoom
-            
-            svg.call(d3.zoom()
-                .extent([[0, 0], [280, 280]])
-                .scaleExtent([1, 8])
-                .on("zoom", zoomed));
-        
-            function zoomed({transform}) {
-                svg.attr("transform", transform);
-                svg.attr("stroke-width", 0,5 / Math.sqrt(transform.k));
-                stations.attr("r", d => (d.range/ 3 / Math.sqrt(transform.k)));
-                // stations.on('mouseover', function (d, i) {
-                //     d3.select(this)
-                //         .transition()
-                //         .attr("r", 2)
-                //         .attr("cursor", "pointer")
-                // })
-                // stations.on("mouseout", function (d, i) {
-                // d3.select(this).transition()
-                //     .attr("r", d => (d.range / 3 / Math.sqrt(transform.k)));
-                // });
-            }
+                // zoom
+                
+                svg.call(d3.zoom()
+                    .extent([[0, 0], [280, 280]])
+                    .scaleExtent([1, 8])
+                    .on("zoom", zoomed));
+          
+                function zoomed({transform}) {
+                    g.attr("transform", transform);
+                    g.attr("stroke-width", 0,5 / Math.sqrt(transform.k));
+                    stations.attr("r", d => (d.range/ 3 / Math.sqrt(transform.k)));
+                    // stations.on('mouseover', function (d, i) {
+                    //     d3.select(this)
+                    //         .transition()
+                    //         .attr("r", 2)
+                    //         .attr("cursor", "pointer")
+                    // })
+                    // stations.on("mouseout", function (d, i) {
+                    // d3.select(this).transition()
+                    //     .attr("r", d => (d.range / 3 / Math.sqrt(transform.k)));
+                    // });
+                }
         });
 
     }
