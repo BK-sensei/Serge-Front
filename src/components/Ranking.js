@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Modals = () => {
+const Ranking = () => {
     return (
         <div>
-            Modals
+            Ranking
         </div>
     );
 };
 
-export default Modals;
+export default Ranking;

@@ -1,16 +1,38 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState, useEffect } from 'react'
 
 const ModalContext = createContext({ })
 
 const ModalContextProvider = ({ children }) => {
     const [visible, setVisible] = useState(false)
-    const [modalType, setModalTyep] = useState(null)
+    const [modalType, setModalType] = useState(null)
+
+    useEffect(() => {
+        setVisible(false)
+        setModalType(null)
+    }, [])
+
+    const close = () => {
+        setModalType(null)
+        setVisible(false)
+    }
+    
+    // const open = () => {
+    //     setVisible(true)
+    // }
+
+    const handleRankingClick = () => {
+        setVisible(true)
+        setModalType("ranking")
+    }
 
     const value = {
         visible,
         setVisible,
         modalType,
-        setModalTyep
+        setModalType,
+        close,
+        // open,
+        handleRankingClick
     }
 
     return (

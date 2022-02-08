@@ -2,7 +2,8 @@ import React, { useContext } from 'react'
 import Modal from 'react-modal'
 
 import { ModalContext } from '../../contexts/Modal';
-import { UserContext } from '../../contexts/User';
+
+import Ranking from '../Ranking';
 
 const modalStyle = {
     content: {
@@ -26,7 +27,7 @@ const closedButton = {
 }
 
 const ModalContainer = () => {
-    const { modalType, visible, setVisible } = UserContext(ModalContext)
+    const { modalType, visible, setVisible } = useContext(ModalContext)
 
     const handleModal = () => {
         if (visible) {

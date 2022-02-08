@@ -2,7 +2,6 @@ import {useState} from 'react';
 
 import styled from 'styled-components'
 
-
 const Container = styled.div`
     background: rgba(0, 0, 0, 0.3);
     border-radius: 30px;
