@@ -143,9 +143,9 @@ const Map = () => {
                     stations.on("mouseout", function (d, i) {
                     d3.select(this).transition()
                         .attr("r", d => (d.range / 3 / Math.sqrt(transform.k)));
-                    });
+                    })
                 }
-        });
+        })
 
        
     }
@@ -157,8 +157,8 @@ const Map = () => {
             </div>  
         </div>
          
-    );
-};
+    )
+}
 
 export default Map;
 
