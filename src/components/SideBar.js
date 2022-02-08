@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
 import ProfileButton from './buttons/ProfileButton'
@@ -33,7 +33,9 @@ const SideBar = () => {
     return (
         <Container>
             <div>
-                <ProfileButton/>
+                <Link to="/profile">
+                    <ProfileButton/>
+                </Link>
                 <BankAccount/>
                 <CardsList/>
             </div>
