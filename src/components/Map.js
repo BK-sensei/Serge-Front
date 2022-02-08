@@ -123,7 +123,7 @@ const Map = () => {
                         .attr("r", d => (d.range/3));
                     }); 
            
-            // zoom
+            // position joueur départ
             const userPosition = svg.append('circle')
                 // .attr('src', `${require('../images/logos/logo-nft-serge.png')}`)
                 .attr('width', 50)
@@ -144,8 +144,8 @@ const Map = () => {
                 .on("zoom", zoomed));
         
             function zoomed({transform}) {
-                g.attr("transform", transform);
-                g.attr("stroke-width", 0,5 / Math.sqrt(transform.k));
+                svg.attr("transform", transform);
+                svg.attr("stroke-width", 0,5 / Math.sqrt(transform.k));
                 stations.attr("r", d => (d.range/ 3 / Math.sqrt(transform.k)));
                 // stations.on('mouseover', function (d, i) {
                 //     d3.select(this)
