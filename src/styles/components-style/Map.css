@@ -1,0 +1,40 @@
+.background{
+    background-color: #DFD3C3;
+}
+ 
+#mapContainer{
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: #DFD3C3;
+}
+
+.map{
+    height: 100%;
+    width:100%;
+    float: left;
+    background-color: #DFD3C3;
+  }
+
+.stationName {
+    position: absolute;
+    text-align: center;
+    padding: .2rem;
+    color: #000000;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    font-size: .7rem;
+}
+
+.parisContainer{
+    fill: #C7B198;
+    stroke: #DFD3C3;
+    stroke-width: 0.5;
+}
+
+
+
