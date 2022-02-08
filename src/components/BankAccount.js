@@ -1,23 +1,19 @@
-import styled from 'styled-components'
+import { useContext } from 'react'
+import { UserContext } from '../contexts/User'
 
-const BankAccount = styled.div`
-    position: absolute;
-    left: 1.68%;
-    right: 1.68%;
-    top: 12.71%;
-    bottom: 73.59%;
-
-    background: #E1F2CC;
-    border: 5px solid #2D4E30;
-    box-sizing: border-box;
-    border-radius: 20px;
-`
+import "../styles/components-style/bankAccount.css"
 
 const BankAccount = () => {
+    const { user } = useContext(UserContext)
+
     return (
-        <BankAccount>
-            BankAccount
-        </BankAccount>
+        <div className='containerAccount'>
+            {/* <p className='textBank'>BANK</p> */}
+            <div className='contentAccount'>
+                <img className='logoBank' src={require('../images/billets.png')} alt="billets"/>
+                <p className='textAccount'>{user.balance} §</p>
+            </div>
+        </div>
     );
 };
 

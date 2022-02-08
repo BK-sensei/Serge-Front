@@ -1,5 +1,5 @@
 import "../styles/components-style/cardProperty.css"
-import ButtonBuy from '../components/buttons/ButtonBuy'
+import BuyButton from '../components/buttons/BuyButton'
 
 const CardProperty = () => {
     return (
@@ -16,14 +16,14 @@ const CardProperty = () => {
                         <ul>
                             <li>
                                 <div className="liStart">
-                                    <img class="logo-upgrade" src={require('../images/logos/logo-nft-serge.png')} alt="logo-nft"/>
-                                    <p>Valeur NFT</p>
+                                    <img className="logo-upgrade" src={require('../images/logos/logo-nft-serge.png')} alt="logo-nft"/>
+                                    <p>Valeur</p>
                                 </div>
                                 <p className="bold">8000 $</p>
                             </li>
                             <li>
                                 <div className="liStart">
-                                    <img class="logo-upgrade" src={require('../images/logos/ticket.png')} alt="metro-ticket"/>
+                                    <img className="logo-upgrade" src={require('../images/logos/ticket.png')} alt="metro-ticket"/>
                                     <p>Taxe de passage</p>
                                 </div>
                                 <p className="bold">600 $</p>
@@ -32,21 +32,21 @@ const CardProperty = () => {
                         <ul>
                             <li>
                                 <div className="liStart">
-                                    <img class="logo-upgrade" src={require('../images/ameliorations/vending-machine.png')} alt="vending-machine"/>
+                                    <img className="logo-upgrade" src={require('../images/ameliorations/vending-machine.png')} alt="vending-machine"/>
                                     <p>Distributeur</p>
                                 </div>
                                 <p className="bold">800 $</p>
                             </li>
                             <li>
                                 <div className="liStart">
-                                    <img class="logo-upgrade" src={require('../images/ameliorations/shop.png')} alt="shop"/>
+                                    <img className="logo-upgrade" src={require('../images/ameliorations/shop.png')} alt="shop"/>
                                     <p>Boutique</p>
                                 </div>
                                 <p className="bold">4000 $</p>
                             </li>
                             <li>
                                 <div className="liStart">
-                                    <img class="logo-upgrade" src={require('../images/ameliorations/monument.png')} alt="monument"/>
+                                    <img className="logo-upgrade" src={require('../images/ameliorations/monument.png')} alt="monument"/>
                                     <p>Monument</p>
                                 </div>
                                 <p className="bold">8000 $</p>
@@ -57,9 +57,9 @@ const CardProperty = () => {
                                 <p>Propriétaire :</p>
                                 <p className="bold" style={{marginTop: 8}}>Aucun</p>
                             </div>
-                            <ButtonBuy> 
+                            <BuyButton> 
                                 <button className="buttonBuy" type="button">Acheter</button>
-                            </ButtonBuy> 
+                            </BuyButton> 
                         </div>
                     </div>
                     

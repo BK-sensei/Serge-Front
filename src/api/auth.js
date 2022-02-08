@@ -39,7 +39,7 @@ const signUp = async ({ username, password, email, balance }) => {
 }
 
 const getMe = async () => {
-    const getmeResponse = await fetch(`${process.env.REACT_APP_API_URL}/auth/me`, {
+    const getmeResponse = await fetch(`http://localhost:5000/auth/me`, {
         headers: {
             'Content-type': 'application/json'
         },
@@ -50,7 +50,7 @@ const getMe = async () => {
 }
 
 const logOut = async () => {
-    const logoutResponse = await fetch(`${process.env.REACT_APP_API_URL}`, {
+    const logoutResponse = await fetch(`http://localhost:5000/auth/logout`, {
         method: 'delete',
         headers: {
             'Content-type': 'application/json'

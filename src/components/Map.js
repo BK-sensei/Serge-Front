@@ -95,11 +95,12 @@ const Map = () => {
                     .attr("stroke", geoLine.color)
                     .style("fill", "none")
                     .style("stroke-width", 1)
+                    .attr("class", "lineShadow")
             })
 
             // dessin des stations
-            const stations = 
-                g.selectAll('circle')
+      
+            const stations =  g.selectAll('circle')
                 .data(stationsData)
                     .join("circle")
                     .attr("transform", d => `translate(${projection([d.latitude, d.longitude])})`)
@@ -119,7 +120,11 @@ const Map = () => {
                         .attr("class", d => d.class)
                         .attr("r", d => (d.range/3));
                     }); 
+           
+             
      
+                // zoom
+                
                 svg.call(d3.zoom()
                     .extent([[0, 0], [280, 280]])
                     .scaleExtent([1, 8])
@@ -128,7 +133,7 @@ const Map = () => {
                 function zoomed({transform}) {
                     g.attr("transform", transform);
                     g.attr("stroke-width", 0,5 / Math.sqrt(transform.k));
-                    stations.attr("r", d => (d.range/3 / Math.sqrt(transform.k)));
+                    stations.attr("r", d => (d.range/ 3 / Math.sqrt(transform.k)));
                     stations.on('mouseover', function (d, i) {
                         d3.select(this)
                             .transition()

@@ -13,7 +13,7 @@ const Container = styled.button`
     border-radius: 30px;
     `
 
-const ButtonAuction = () => {
+const AuctionButton = () => {
     return (
         <Container>
             
@@ -21,4 +21,4 @@ const ButtonAuction = () => {
     );
 };
 
-export default ButtonAuction;
+export default AuctionButton;

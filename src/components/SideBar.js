@@ -1,11 +1,12 @@
 import {useState} from 'react';
 import styled from 'styled-components'
 
-import ButtonProfile from '../components/buttons/ButtonProfile'
-import BankAccount from '../components/buttons/ButtonProfile'
+import ProfileButton from './buttons/ProfileButton'
+import BankAccount from '../components/BankAccount'
 import CardsList from '../components/lists/CardsList'
 import Dice from '../components/Dice'
-import ButtonAuction from '../components/buttons/ButtonAuction'
+import AuctionButton from './buttons/AuctionButton'
+import RankingButton from './buttons/RankingButton'
 
 
 const Container = styled.div`
@@ -17,30 +18,30 @@ const Container = styled.div`
     bottom: 1.43%;
     border-radius: 25px;
     width : 20%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `
 
-
-const LeftButton = styled.div`
-    position: absolute;
-    left: 1.9%;
-    right: 55%;
-    top: 86.12%;
-    bottom: 3.13%;
-
-    background: #88B995;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
+const Buttons = styled.div`
+   display: flex;
+   justify-content: space-between;
 `
 
 const SideBar = () => {
     return (
         <Container>
-            <ButtonProfile/>
-            <BankAccount/>
-            <CardsList/>
+            <div>
+                <ProfileButton/>
+                <BankAccount/>
+                <CardsList/>
+            </div>
             <Dice/>
-            <ButtonAuction/>
-            <LeftButton/>
+            <Buttons >
+                <AuctionButton/>
+                <RankingButton/>
+            </Buttons >
         </Container>
     );
 };
