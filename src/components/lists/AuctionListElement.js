@@ -1,11 +1,11 @@
 import React from 'react'
-import '../styles/pages-style/auction.css'
+import '../../styles/pages-style/auction.css'
 
 const AuctionListElement = () => {
     return (
-        <ul className='flex list'>
+        <ul className='flex list auction-list'>
             <div className='nft'>
-                    <img src={require('../images/logos/logo-nft-serge.png')} className='nft-serge' alt=''/>
+                    <img src={require('../../images/logos/logo-nft-serge.png')} className='nft-serge' alt=''/>
                     {/* Valeur du NFT de la propriété */}
                     <p>1 500 §</p>
                 </div>
@@ -19,10 +19,10 @@ const AuctionListElement = () => {
                         </div>
                     </div>
                     {/* Faire un map des amélioration */}
-                    <img src={require('../images/ameliorations/vending-machine.png')} className='amelioration' alt=''/>
+                    <img src={require('../../images/ameliorations/vending-machine.png')} className='amelioration' alt=''/>
                 </div>
                 <div className='flex timeLeft'>
-                    <img src={require('../images/red-clock.png')} className='red-clock' alt=''/>
+                    <img src={require('../../images/red-clock.png')} className='red-clock' alt=''/>
                     {/* Afficher le temps restant pour faire une offre */}
                     <p className='time-text-list'>08h 57min</p>
                 </div>

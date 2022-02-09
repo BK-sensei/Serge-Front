@@ -2,7 +2,7 @@ import '../styles/pages-style/auction.css'
 
 const ItemProperties = () => {
     return (
-        <ul className='flex list'>
+        <ul className='flex list auction-list'>
             <div className='nft'>
                     <img src={require('../images/logos/logo-nft-serge.png')} className='nft-serge' alt=''/>
                     {/* Valeur du NFT de la propriété */}

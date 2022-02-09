@@ -27,20 +27,28 @@ const Container = styled.div`
 
 const Buttons = styled.div`
    display: flex;
-   justify-content: space-between;
+   justify-content: space-around;
+   margin-bottom: 10px;
+`
+
+const DiceContainer = styled.div`
+    display: flex;
+    justify-content: center;
 `
 
 const SideBar = () => {
     return (
         <Container>
             <div>
-                <Link to="/profile">
+                <Link to="/profile" style={{textDecoration:'none'}}>
                     <ProfileButton/>
                 </Link>
                 <BankAccount/>
                 <CardsList/>
             </div>
-            <Dice/>
+            <DiceContainer>
+                <Dice/>
+            </DiceContainer>
             <Buttons >
                 <Link to="/auction-room">
                     <AuctionButton/>

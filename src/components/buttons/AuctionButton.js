@@ -1,17 +1,4 @@
-import styled from 'styled-components'
-
-const Container = styled.button`
-    position: absolute;
-    left: 55%;
-    right: 1.91%;
-    top: 86.12%;
-    bottom: 3.13%;
-
-    background: #F0BC97;
-    background
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
-    `
+import React from 'react';
 
 const AuctionButton = () => {
     return (
@@ -21,7 +8,7 @@ const AuctionButton = () => {
                 className='logo-btn'
                 style={{backgroundColor:"#88B995"}}
             >
-                <img src={require('../../images/logos/auction-logo.png')}  alt='' />
+                <img src={require('../../images/logos/auction-logo.png')} className='auction-logo' alt='' />
             </button>
         </div>
     );
