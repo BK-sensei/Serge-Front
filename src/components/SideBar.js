@@ -5,6 +5,7 @@ import ProfileButton from './buttons/ProfileButton'
 import BankAccount from '../components/BankAccount'
 import CardsList from '../components/lists/CardsList'
 import Dice from '../components/Dice'
+import MapButton from './buttons/MapButton'
 import AuctionButton from './buttons/AuctionButton'
 import RankingButton from './buttons/RankingButton'
 import ModalContainer from './modals/ModalContainer';
@@ -49,7 +50,10 @@ const SideBar = () => {
             <DiceContainer>
                 <Dice/>
             </DiceContainer>
-            <Buttons >
+            <Buttons>
+                <Link to="/gameboard">
+                    <MapButton />
+                </Link>
                 <Link to="/auction-room">
                     <AuctionButton/>
                 </Link>
