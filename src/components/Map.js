@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect} from 'react'
 import { useContext } from 'react'
-import { UserContext } from '../contexts/User'
 import * as d3 from "d3";
 import { UserContext } from '../contexts/User'; 
 import { getProperties } from '../api/properties'
@@ -18,11 +17,10 @@ const Map = () => {
     const { user } = useContext(UserContext)
     const [stationsData, setStationsData] = useState([])
     const [linesData, setLinesData] = useState([])
-    const [mapContainer, setMapContainer] = useState([])
-    const [projection, setProjection] = useState([])
     const [mapCreated, setMapCreated] = useState(false)
     const [mapContainer, setMapContainer] = useState([])
     const [projection, setProjection] = useState([])
+    const [mapState, setMapState] = useState("")
    
     
 
@@ -34,10 +32,17 @@ const Map = () => {
         if (stationsData.length > 0 && linesData.length > 0 && !mapCreated) {
             // console.log(stationsData)
             createMap()
-            setMapCreated(true)
-            console.log("suspennns")
+            setMapCreated(true)           
         }
-    }, [stationsData,linesData,userPositon])
+    }, [stationsData,linesData])
+
+    useEffect(() => {
+            if (mapCreated){
+                createPawn()
+            } else {
+                console.log("map not created")
+            }
+    }, [mapCreated])
 
 
     const fetchData = async () => {
@@ -48,6 +53,36 @@ const Map = () => {
         const linesData = await getLines()
         // console.log(linesData)
         setLinesData(linesData)
+    }
+
+    const createPawn = () => {
+
+        let median_x = d3.median(stationsData, d => d.latitude);
+        let median_y = d3.median(stationsData, d => d.longitude);
+
+        const projection = d3.geoMercator()
+        .translate([0, 0])
+        .scale(50000)
+        .center([median_x, median_y])
+
+    const path = d3.geoPath(projection)
+            console.log("mapcreated")
+            let mapTest = mapState
+            const userX = 2.38244550268222
+            const userY = 48.8949061258374
+            
+
+
+            const userPosition = mapTest.append("g")
+                                .attr("transform", `translate(${projection([userX, userY])})`)
+
+            userPosition.append("circle")
+                    .attr("r", 2)
+                    .attr("fill", "red") 
+
+            console.log("mapcontainer",mapTest)
+            console.log("zadzazad")
+        
     }
 
 
@@ -79,12 +114,14 @@ const Map = () => {
                 .attr("class", "map")
         
         const g = svg.append("g")
+    //    console.log("wtf",svg._groups[0][0])
 
-       setMapContainer(svg)
+
+       setMapState(svg._groups[0][0])
        setProjection(projection)
 
-        console.log(svg)
-        console.log(projection)
+        // console.log("svg",svg._groups[0][0])
+        console.log("projection",projection)
 
 
         // Dessin de la carte
@@ -164,21 +201,22 @@ const Map = () => {
                 //     .attr("r", d => (d.range / 3 / Math.sqrt(transform.k)));
                 // });
             }
-        });
-        if (!mapContainer) {
-            return <p>Loading</p>
-        }
+            
 
-        console.log("mapcontainer",mapContainer._groups)
-        console.log("projection", projection)
+        });
+
+        
+
+        
+        // console.log("projection", projection)
 
     }
         if (!mapContainer) {
             return <p>Loading</p>
         }
 
-        console.log(mapContainer._groups)
-        // mapContainer._groups.forEach(x => console.log(x))
+        console.log("mapcontainer",mapState)
+
 
     
         // // position joueur départ
@@ -211,45 +249,3 @@ const Map = () => {
 };
 
 export default Map;
-
-
-     // .style("color", function(d, i) {
-            //     return d > 10 ? "#ff0000" : "#000";
-            //   })
-            //   .text(function(d, i){
-            //       for (i=0; i<dataset.length; i++)
-            //       {
-            //           if(d > 10)
-            //           {
-            //             result = "black";
-            //            }
-            //            else
-            //            {
-            //             result = "white";
-            //            }
-            //       }
-            //       return result;
-            //   })
-
-
-    // const gen_branch = function(d) {
-    //     return d.linesData.map(function(p) { return {"key": key, "paths": p}; });
-    // }
-
-
-    // container_lines.selectAll()
-    //     .selectAll(".line")
-    //     .data(linesData)
-    //     .enter()
-    //         .append("g")
-    //         .attr("class", line_class)
-
-    // lines.selectAll(".line_branch")
-    //     .data(gen_branch)
-    //     .enter()
-    //         .append("path")
-    //         .attr("stroke", "black")
-    //         // .attr("d", drawLine(properties, projection))
-    //         // .on("mouseover", select_line)
-    //         // .on("mouseout", deselect_line)
-            

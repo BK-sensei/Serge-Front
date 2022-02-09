@@ -11,7 +11,7 @@ import "../../styles/components-style/profileButton.css"
 const ButtonProfile = () => {
     const navigate = useNavigate()
     const { user } = useContext(UserContext)
-    console.log(user)
+    // console.log(user)
 
     return (
         <div className="containerProfile">
