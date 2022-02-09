@@ -1,5 +1,5 @@
 import React from 'react'
-import AuctionListElement from '../AuctionListElement';
+import AuctionListElement from './AuctionListElement';
 
 const List = () => {
     return (
