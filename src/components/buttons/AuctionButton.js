@@ -6,9 +6,13 @@ const AuctionButton = () => {
             <button
                 type='button'
                 className='logo-btn'
-                style={{backgroundColor:"#88B995"}}
+                style={{backgroundColor:"#88B995", position:"relative"}}
             >
-                <img src={require('../../images/logos/auction-logo.png')} className='auction-logo' alt='' />
+                <img 
+                    src={require('../../images/logos/auction-logo.png')}  
+                    alt=''
+                    style={{position:"absolute", width: "80px",height: "60px"}} 
+                />
             </button>
         </div>
     );

@@ -14,7 +14,7 @@ const Signup = () => {
 
             <div className='bg-blue signup-div'>
                 <h3>Déjà un compte ?</h3>
-                <Link to='/'>
+                <Link to='/' style={{textDecoration:'none'}}>
                     <button 
                         type='button'
                         className='signup-btn'
