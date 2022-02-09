@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components'
+import { Link } from 'react-router-dom';
 
 import ProfileButton from './buttons/ProfileButton'
 import BankAccount from '../components/BankAccount'
@@ -24,10 +24,10 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: space-between;
 `
-
 const Buttons = styled.div`
    display: flex;
    justify-content: space-between;
+   width:100%;
 `
 
 const SideBar = () => {
@@ -41,13 +41,11 @@ const SideBar = () => {
                 <CardsList/>
             </div>
             <Dice/>
-            <Buttons >
-                <Link to="/auction-room">
-                    <AuctionButton/>
-                </Link>
-                <RankingButton/>
-                <ModalContainer />
+            <Buttons>
+                <AuctionButton/>
+                <RankingButton/>  
             </Buttons >
+            <ModalContainer />
         </Container>
     );
 };

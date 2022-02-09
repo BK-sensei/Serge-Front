@@ -7,8 +7,10 @@ import { getProperties } from '../api/properties'
 import { getLines } from '../api/lines'
 import "../styles/components-style/linesColors.css"
 import "../styles/components-style/map.css"
+import idfMap from '../api/idfMap.geojson'
 import parisMap from '../images/arrondissements.geojson'
 import geoLines from "../api/geoLines.json"
+import pawn from "../images/pions/pawn-blue.svg"
 
 // const lodash = require("lodash")
 
@@ -17,6 +19,10 @@ const Map = () => {
     const [stationsData, setStationsData] = useState([])
     const [linesData, setLinesData] = useState([])
     const [mapCreated, setMapCreated] = useState(false)
+    const [mapContainer, setMapContainer] = useState([])
+    const [projection, setProjection] = useState([])
+   
+    
 
     useEffect(() => {
         fetchData()
@@ -69,22 +75,36 @@ const Map = () => {
                 // .attr("preserveAspectRatio", "xMidYMid meet")
                 .attr("class", "map")
         
+        const g = svg.append("g")
+
+       setMapContainer(svg)
+       setProjection(projection)
+
+        console.log(svg)
+        console.log(projection)
+
 
         // Dessin de la carte
 
-        d3.json(parisMap).then(function(geojson) { 
-            
-            const g = svg.append("g")
+        const idf = d3.json(idfMap).then(function(data) {
+            g.selectAll("path")
+                .data(data.features)
+                    .enter()
+                    .append("path")
+                    .attr("d", path)
+                    .attr("class", "idfContainer") 
+                    .lower()
+        })
 
-            // contours de Paris
-            const paris = 
-                g.selectAll("path")
-                .data(geojson.features)
+        const paris = d3.json(parisMap).then(function(data) { 
+            
+          // contours de Paris
+            g.selectAll("path")
+                .data(data.features)
                     .enter()
                     .append("path")
                     .attr("d", path)
                     .attr("class", "parisContainer") 
-                    .lower()
 
             // dessin des lignes
             const drawLines = d3.geoPath()
@@ -97,11 +117,9 @@ const Map = () => {
                     .attr("stroke", geoLine.color)
                     .style("fill", "none")
                     .style("stroke-width", 1)
-                    .attr("class", "lineShadow")
             })
 
             // dessin des stations
-      
             const stations =  g.selectAll('circle')
                 .data(stationsData)
                     .join("circle")
@@ -110,63 +128,71 @@ const Map = () => {
                     .attr("stroke-width", 0.4)
                     .attr("class", d => d.class)
                     .raise() 
-                    .on("click", e => console.log(e))
+                    .on("click", e => console.log(e.target.__data__))
                     .on('mouseover', function (d, i) {
                         d3.select(this)
                             .transition()
                             .attr("r", 4)
-                            .attr("cursor", "pointer")
                     })
                     .on("mouseout", function (d, i) {
                     d3.select(this).transition()
                         .attr("class", d => d.class)
                         .attr("r", d => (d.range/3));
                     }); 
-           
-            // position joueur départ
-            const userPosition = svg.append('circle')
-                // .attr('src', `${require('../images/logos/logo-nft-serge.png')}`)
-                .attr('width', 50)
-                .attr('height', 50)
-                .attr("r", 2)
-                .attr('fill', 'red')
-                // .attr('x', 2.38244550268222)
-                // .attr('y', 48.8949061258374)
-                .attr("transform", `translate(${projection([2.38244550268222, 48.8949061258374])})`)
-                .raise()
-
      
-                // zoom
-                
-                svg.call(d3.zoom()
-                    .extent([[0, 0], [280, 280]])
-                    .scaleExtent([1, 8])
-                    .on("zoom", zoomed));
-          
-                function zoomed({transform}) {
-                    g.attr("transform", transform);
-                    g.attr("stroke-width", 0,5 / Math.sqrt(transform.k));
-                    stations.attr("r", d => (d.range/ 3 / Math.sqrt(transform.k)));
-                    // stations.on('mouseover', function (d, i) {
-                    //     d3.select(this)
-                    //         .transition()
-                    //         .attr("r", 2)
-                    //         .attr("cursor", "pointer")
-                    // })
-                    // stations.on("mouseout", function (d, i) {
-                    // d3.select(this).transition()
-                    //     .attr("r", d => (d.range / 3 / Math.sqrt(transform.k)));
-                    // });
-                }
+            // zoom
+            svg.call(d3.zoom()
+                .extent([[0, 0], [280, 280]])
+                .scaleExtent([1, 8])
+                .on("zoom", zoomed));
+        
+            function zoomed({transform}) {
+                svg.attr("transform", transform);
+                // map.attr("path", 0,5 / Math.sqrt(transform.k));
+                // stations.attr("r", d => (d.range/ 3 / Math.sqrt(transform.k)));
+                // stations.on('mouseover', function (d, i) {
+                //     d3.select(this)
+                //         .transition()
+                //         .attr("r", 2)
+                //         .attr("cursor", "pointer")
+                // })
+                // stations.on("mouseout", function (d, i) {
+                // d3.select(this).transition()
+                //     .attr("r", d => (d.range / 3 / Math.sqrt(transform.k)));
+                // });
+            }
         });
 
     }
+        if (!mapContainer) {
+            return <p>Loading</p>
+        }
 
-    // const moveUser = () => {
-    //     svg.append("img")
-    // }
-            
+        console.log(mapContainer._groups)
+        // mapContainer._groups.forEach(x => console.log(x))
+
     
+        // // position joueur départ
+
+        // const userX = 2.38244550268222
+        // const userY = 48.8949061258374
+
+        // const userPosition = mapContainer._groups.append("g")
+        //     .attr("transform", `translate(${projection([userX, userY])})`)
+
+        //     userPosition.append("circle")
+        //         .attr("r", 2)
+        //         .attr("fill", "red") 
+      
+        // const pawn = userPosition.append("image")
+        //     // .attr("src", `${require('../images/pions/pawn-blue.png')}`)
+        //     // .attr("xlink:href", "https://lemagdesanimaux.ouest-france.fr/images/dossiers/2021-10/determiner-age-lapin-173456.jpg")
+        //     .attr("height", 50)
+        //     .attr("width", 50)
+        //     .attr("x", -5 )
+        //     .attr("y", -5 )
+    
+
     return (
         <div className="background">
             <div id="mapContainer">
