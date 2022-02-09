@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import * as d3 from "d3";
-
+import { UserContext } from '../contexts/User'; 
 import { getProperties } from '../api/properties'
 import { getLines } from '../api/lines'
 import "../styles/components-style/linesColors.css"
@@ -13,7 +13,10 @@ import geoLines from "../api/geoLines.json"
 const Map = () => {
     const [stationsData, setStationsData] = useState([])
     const [linesData, setLinesData] = useState([])
+    const [mapContainer, setMapContainer] = useState([])
+    const [projection, setProjection] = useState([])
     const [mapCreated, setMapCreated] = useState(false)
+    const  {userPositon, setUserPosition } = useContext(UserContext) 
 
     useEffect(() => {
         fetchData()
@@ -24,8 +27,9 @@ const Map = () => {
             // console.log(stationsData)
             createMap()
             setMapCreated(true)
+            console.log("suspennns")
         }
-    }, [stationsData,linesData])
+    }, [stationsData,linesData,userPositon])
 
 
     const fetchData = async () => {
@@ -66,7 +70,9 @@ const Map = () => {
                 .attr("viewBox", "-110 -130 260 260")
                 // .attr("preserveAspectRatio", "xMidYMid meet")
                 .attr("class", "map")
-        
+
+        setMapContainer(svg)
+        setProjection(projection)
 
         // Dessin de la carte
 
@@ -120,8 +126,18 @@ const Map = () => {
                         .attr("class", d => d.class)
                         .attr("r", d => (d.range/3));
                     }); 
-           
-             
+
+                    const userPosition = svg.append('circle')
+                    // .attr('src', ${require('../images/logos/logo-nft-serge.png')})
+                    .attr('width', 50)
+                    .attr('height', 50)
+                    .attr("r", 2)
+                    .attr('fill', 'red')
+                    // .attr('x', 2.38244550268222)
+                    // .attr('y', 48.8949061258374)
+                    .attr("transform", `translate(${projection(userPositon)})`)
+                    .raise()
+                
      
                 // zoom
                 
@@ -146,17 +162,22 @@ const Map = () => {
                     // });
                 }
         });
+        if (!mapContainer) {
+            return <p>Loading</p>
+        }
+
+        console.log("mapcontainer",mapContainer._groups)
+        console.log("projection", projection)
 
        
-    }
-    
+    }    
+
     
     return (
         <div className="background">
             <div id="mapContainer">
             </div>  
         </div>
-         
     );
 };
 

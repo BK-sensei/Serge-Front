@@ -6,6 +6,7 @@ const UserContext = createContext({ })
 
 const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null)
+    const [userPositon, setUserPosition] = useState([2.38244550268222, 48.8949061258374])
 
     useEffect(() => {
         getUser()
@@ -22,7 +23,9 @@ const UserProvider = ({ children }) => {
     const value = {
         user,
         setUser,
-        getUser
+        getUser,
+        userPositon,
+        setUserPosition
     }
 
     return (

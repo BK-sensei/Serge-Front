@@ -13,8 +13,14 @@ import "../styles/pages-style/gameboard.css"
 
 
 const GameBoard = () => {
-    const  { user, setUser } = useContext(UserContext)
+    const  { user, setUser, userPositon, setUserPosition } = useContext(UserContext) 
     console.log(user)
+    
+    const HandleTest = () => {
+    setUserPosition([48.8906811628606,2.37681528947191])
+    console.log("userposition",userPositon)
+    }
+
     return (
         <div>
             <div className="card">
@@ -23,11 +29,15 @@ const GameBoard = () => {
             <div className="map">
                 <Map className="map"/>
             </div>
-            <div className="title">
+            <div  onClick={HandleTest} className="title">
                 <SergeSubway />
             </div>
             <div className="sidebar">
                 <SideBar />
+            </div>
+
+            <div  >
+                <p>megatest</p>
             </div>
             
             
