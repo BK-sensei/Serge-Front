@@ -1,3 +1,6 @@
+import { useContext } from 'react'
+import { UserContext } from '../../contexts/User'
+
 import styled from 'styled-components'
 
 import ItemProperties from '../ItemProperties'
@@ -9,8 +12,8 @@ const Container = styled.div`
     box-shadow: inset -2px 2px 2px 2px rgba(0, 0, 0, 0.25);
     border-radius: 30px;
     height: 260px;
-    margin-top: 5px;  
-`
+    margin-top: 5px; 
+    `
 
 const List = styled.div`
     margin: 15px;
@@ -38,16 +41,18 @@ const List = styled.div`
 `
 
 const CardsList = () => {
+    const { user } = useContext(UserContext)
+    // console.log("user", user)
+
     return (
         <Container>
             <List>
-                <ItemProperties/>
-                <ItemProperties/>
-                <ItemProperties/>
-                <ItemProperties/>
-                <ItemProperties/>
-                <ItemProperties/>
-                <ItemProperties/>
+                {user.properties.map((property,index) =>
+                    <ItemProperties
+                        key={index}
+                        property={property}
+                    />
+                )}
             </List>            
         </Container>
     );

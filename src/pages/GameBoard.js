@@ -14,6 +14,11 @@ import "../styles/pages-style/gameboard.css"
 
 const GameBoard = () => {
     const  { user, setUser } = useContext(UserContext)
+
+    if (!user) {
+        return <p>Pas de user</p>
+    }
+    
     console.log(user)
     return (
         <div>

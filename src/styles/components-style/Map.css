@@ -31,12 +31,21 @@
 }
 
 .parisContainer{
-    fill: #C7B198;
-    stroke: #DFD3C3;
+    fill: rgb(212, 197, 179);
+    stroke: #ebe4db;
     stroke-width: 0.5;
+}
+
+.idfContainer{
+    fill: none;
+    stroke: #fffefd;
+    stroke-width: 0.1;
 }
 
 .lineShadow{
     filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.4));
 }
 
+/* .userPawn{
+    background-image: url('../images/pions/pawn-blue.png');
+} */

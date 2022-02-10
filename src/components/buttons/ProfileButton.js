@@ -8,8 +8,6 @@ import { AiOutlineLogout } from 'react-icons/ai'
 // import styled from 'styled-components'
 import "../../styles/components-style/profileButton.css"
 
-
-
 const ButtonProfile = () => {
     const navigate = useNavigate()
     const { user } = useContext(UserContext)

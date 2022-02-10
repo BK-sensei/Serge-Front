@@ -12,7 +12,7 @@
 }
 
 .line_1 {
-    fill: rgb(242,201,49);
+    fill: rgb(243, 215, 93);
     stroke: rgb(173, 138, 10);
     background-color: rgb(242,201,49);
 }
@@ -37,7 +37,7 @@
 
 .line_4 {
     fill: rgb(187,77,152);
-    stroke: rgb(143, 58, 116);
+    stroke: rgb(122, 44, 98);
     background-color: rgb(187,77,152);
 }
 
@@ -54,9 +54,9 @@
 }
 
 .line_7 {
-    fill: rgb(223,154,177);
-    stroke: rgb(177, 102, 127);
-    background-color: rgb(223,154,177);
+    fill: rgb(245,155,187);
+    stroke: rgb(165, 79, 108);
+    background-color: rgb(245,155,187);
 }
 
 .line_7bis {
@@ -66,14 +66,14 @@
 }
 
 .line_8 {
-    fill: rgb(197,163,202);
+    fill: rgb(221,156,223);
     stroke: rgb(111, 85, 114);
-    background-color: rgb(197,163,202);
+    background-color: rgb(221,156,223);
 }
 
 .line_9 {
     fill: rgb(205,200,63);
-    stroke: rgb(136, 133, 40);
+    stroke: rgb(122, 119, 22);
     background-color: rgb(205,200,63);
 }
 
