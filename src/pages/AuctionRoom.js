@@ -3,7 +3,7 @@ import React, {useState, useEffect, useContext} from 'react'
 import AuctionTitle from '../components/titles/AuctionTitle'
 import List from '../components/lists/AuctionList'
 import Auction from '../components/Auction'
-// import SergeSubway from '../components/titles/SergeSubway'
+import SergeSubway from '../components/titles/SergeSubway'
 import SideBar from '../components/SideBar'
 import { UserContext } from "../contexts/User"
 
@@ -52,7 +52,7 @@ const AuctionRoom = () => {
                     <List />
                     <Auction value={response}/>
                 </div>
-                {/* <SergeSubway /> */}
+                <SergeSubway />
             </div>
             <SideBar sendBid={() => sendBid(user._id, "620525959c3a4edf5a6c34fa")}/>
         </div>
