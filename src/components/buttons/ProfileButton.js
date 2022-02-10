@@ -28,7 +28,7 @@ const ButtonProfile = () => {
             <div className='contentProfile'>
                 <div className="contentStart">
                     {!user.pictureUrl ? 
-                        <img className="avatar" src={require('../../images/avatars/bunny-pink.png')} alt="pink-Serge-metro"/>
+                        <img className="avatar" src={require('../../images/avatars/bunny-green.png')} alt="pink-Serge-metro"/>
                     : <img className="avatar" src={user.pictureUrl} alt="bank"/>
                     }
                     <h3>{user.username}</h3>

@@ -1,4 +1,4 @@
-import {useContext, useEffect} from 'react'
+import {useContext} from 'react'
 import { UserContext } from '../contexts/User'; 
 import { CardPropertyContext } from '../contexts/CardProperty'; 
 
@@ -11,19 +11,23 @@ import UpgradeButton from '../components/buttons/UpgradeButton'
 
 const CardProperty = (props) => {
     const  { user } = useContext(UserContext)
-    const  { setCardProperty } = useContext(CardPropertyContext )
+    const  { setCardProperty } = useContext(CardPropertyContext)
     const { property } = props
-
+  
     const handleClosed = () => {
         setCardProperty(null)
     }
 
+     
     return (
         <div 
             className="cardContainer" 
             // style={property.monument && {backgroundImage:`url(../images/monuments/${property.monument.station}.png)`}}
         >
-            <button className="button-modale" onClick={handleClosed}>
+            <button 
+                className="button-modale" 
+                onClick={handleClosed}
+            >
                 <h4>X</h4>
             </button>
             <div className="cardBorder">

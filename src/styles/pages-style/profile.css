@@ -1,78 +1,66 @@
-/* style  userpage */
-/* *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
-
-body {
-    font-family: 'Fascinate Inline', cursive;
-}
-
-.page-container {
-    background-color: #C7E4EE;
-    display: flex;
-    width: 100%;
-    height: 100vh;
-}
-
 .profile-container {
-    margin : 10%;
-    width : 60%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-image: url(../../../public/images/fond-metro.png);
+    background-size: auto;
 }
 
 .header {
     display: flex;
-    justify-content: space-between;
+    margin-left: 20px;
 }
-.title {
-    display: flex;
-}
+
 .profile-picture {
-    height : 100px;
-    width : 100px;
-    border-radius: 50%;
+    height : 80px;
+    width : 70px;
     background-color: #97C5D4;
     background : no-repeat;
-    background-image: url(../../../public/images/bunny-pink.png);
+    background-image: url(../../../public/images/pawn-green.png);
+    background-size: cover;
+    margin-top: 10px;
 }
-.user-title{
-    /* position: absolute;
-    left: 11.34%;
-    right: 44.1%; */
-    /* top: 6.71%;
-    bottom: 90.15%; */
 
+.user-title{
     font-family: Fascinate Inline;
     font-style: normal;
     font-weight: 900;
-    font-size: 48px;
+    font-size: 38px;
     line-height: 64px;
-
     color: #000000;
 }
-.counter {
-    display : flex;
-}
-.card-counter{
-    background-color: aqua;
-    height : 60px;
-    width : 40px;
-    margin : 10px;
 
-}
 .cards-container{
-    background-color: #F4F4C9;
-    height : 80%;
-    width : 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position: absolute;
+    left: 3.01%;
+    right: 28.01%;
+    top: 13%;
+    bottom: 22%;
+
+    background: #F5EDC7;
+    border: 5px solid #E1BF00;
+    box-sizing: border-box;
+    border-radius: 30px;
 }
+
+.list-propertyCard{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    overflow-y: scroll;
+}
+
+.li-card{
+    margin-right: 10px;
+}
+
 .station-title{
     margin-top: 10px;
-    font-size: 38px;
+    font-size: 28px;
+    text-align: center;
 }
+
 .footer {
     display: flex;
     font-size: 60px;

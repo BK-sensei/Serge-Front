@@ -50,6 +50,9 @@ const ModalContainer = () => {
                 {modalType === "ranking" &&
                     <Ranking />
                 }
+                {/* {modalType === "buying" &&
+                    <ModalBuy />
+                } */}
 
             </Modal>
         </>

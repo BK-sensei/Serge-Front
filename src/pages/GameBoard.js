@@ -42,6 +42,7 @@ const GameBoard = () => {
         }
       }, [user])
 
+
     useEffect(() => {
         if (user) {
             handleAlgoMove()
@@ -54,6 +55,11 @@ const GameBoard = () => {
         const line = testLine.find(line => line.key === currentLine)
         const currentStationIndex = line.paths[0].findIndex(station => station === user.position[0].keyName)
         const newStationIndex = currentStationIndex + dice
+        
+        console.log("newStationIndex", newStationIndex)
+        console.log("line", line)
+
+
         const newStationName = line.paths[0][newStationIndex]
         const newStation = testProperties.find(station => station.keyName === newStationName)
         setCardProperty(newStation)
@@ -65,10 +71,7 @@ const GameBoard = () => {
         await editUser(body)
     }
 
-    const handleCheckDiv = () => {
-
-    }
-
+    
     if (!user) {
         return <p>Pas de user</p>
     }
@@ -87,7 +90,7 @@ const GameBoard = () => {
                 <div className="map">
                     <Map className="map" />
                 </div>
-                <div onClick ={handleAlgoMove} className="title">
+                <div className="title">
                     <SergeSubway />
                 </div>
                 <div className="sidebar">
