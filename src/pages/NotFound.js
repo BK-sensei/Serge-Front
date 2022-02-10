@@ -1,10 +1,13 @@
 import React from 'react'
+import Dice from '../components/Dice'
 
 const NotFound = () => {
+
     return (
-        <div>
-            Not Found
-        </div>
+        <>
+            <h1>Not Found</h1>
+            <Dice />
+        </>
     )
 }
 

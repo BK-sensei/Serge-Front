@@ -12,8 +12,8 @@ const Container = styled.div`
     box-shadow: inset -2px 2px 2px 2px rgba(0, 0, 0, 0.25);
     border-radius: 30px;
     height: 260px;
-    margin-top: 5px; 
-    `
+    margin-top: 5px;  
+`
 
 const List = styled.div`
     margin: 15px;

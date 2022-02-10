@@ -13,6 +13,16 @@ const ButtonProfile = () => {
     const { user } = useContext(UserContext)
     // console.log(user)
 
+    const handleLogoutClick = () => {
+        fetch('http://localhost:5000/auth/logout', {
+          method: 'delete',
+          credentials: 'include'
+        })
+          .then(response => {
+            navigate('/')
+          })
+    }
+
     return (
         <div className="containerProfile">
             <div className='contentProfile'>
@@ -23,7 +33,13 @@ const ButtonProfile = () => {
                     }
                     <h3>{user.username}</h3>
                 </div>
+                <button 
+                    type="button" 
+                    className="logout-btn"
+                    onClick={handleLogoutClick}
+                >
                 <AiOutlineLogout color="white" fontSize="1.5em"/>
+                </button>
             </div>
         </div>
     );

@@ -10,14 +10,19 @@ const Button = styled.button`
 
 const MapButton = () => {
     return (
-        <Link to="/auction-room">
-            <Button
+        <div>
+            <button
                 type='button'
+                className='logo-btn'
                 style={{backgroundColor:"#DFD3C3"}}
             >
-                <img style={{width:"70px"}} src={require('../../images/logos/map-logo.png')}  alt='' /> 
-            </Button>      
-        </Link>   
+                <img 
+                    src={require('../../images/logos/map-logo.png')} 
+                    alt=''
+                    style={{position:"absolute", width: "70px",height: "60px"}}  
+                />
+            </button>
+        </div>
     );
 };
 

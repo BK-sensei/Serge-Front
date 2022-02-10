@@ -15,12 +15,16 @@ const RankingButton = () => {
     const { handleRankingClick } = useContext(ModalContext)
 
     return (
-        <Container
-            type='button'
-            onClick={() => handleRankingClick("ranking")}
-        >
-            <img style={{ width:"50px" }} src={require('../../images/ranking.png')} alt='' />
-        </Container>
+        <div>
+            <button
+                type='button'
+                onClick={() => handleRankingClick("ranking")}
+                className='logo-btn'
+            >
+                <img src={require('../../images/ranking.png')}  alt='' 
+                style={{position:"absolute", width:'60px', height: "60px"}} />
+            </button>
+        </div>
     );
 };
 
