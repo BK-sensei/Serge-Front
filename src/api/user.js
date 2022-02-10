@@ -34,8 +34,23 @@ const putUser = async (_id, body) => {
     return data
 }
 
+// acheter propriété 
+const putProperty = async (_id) => {
+    const postPropertyResponse = await fetch (`http://localhost:5000/users/:${_id}/buy/:property` ,{
+        method: 'put',
+        headers : {
+            'Content-type': 'application/json'
+        },
+        credentials:'include',
+        })
+        const data = await postPropertyResponse.json()
+        return data
+    }
+
+
 export {
     getUser,
     getUsers,
-    putUser
+    putUser,
+    putProperty
 }
