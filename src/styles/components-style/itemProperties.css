@@ -1,6 +1,6 @@
 .list-Item{
     padding: 5px 0px;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid #F9BA2D;
     justify-content: space-between;
 }
 
@@ -52,3 +52,6 @@
     margin-top: 5px;
 }
 
+.property-name {
+    font-family: 'Enriqueta', serif;
+}
