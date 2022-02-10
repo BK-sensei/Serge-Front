@@ -3,27 +3,23 @@ import { UserContext } from '../../contexts/User'
 
 import "../../styles/components-style/buttons.css"
 import { putProperty } from '../../api/user'
+import { getMe } from '../../api/auth'
 
 
 const BuyButton = (props) => {
-    const { user, setUser } = useContext(UserContext)
+    const { user, getUser } = useContext(UserContext)
     // const [disabled, setDisabled] = useState(false)
 
-    const handleBuyProperty = async () => {
-        const newProperty = await putProperty(props.property)
-        console.log(props.property)
+    const handleBuyProperty = async (_id, _property) => {
+        const newProperty = await putProperty(_id, _property)
+        await getUser()
     }
+    console.log("props", props)
 
-    // const buyingDisable = () => {
-    //     if (user.balance < props.property.currentValue) {
-    //         setDisabled(true)
-    //     }
-    // }
-   
     return (
         <button 
             type='button'
-            onClick={() => handleBuyProperty(props.property)}
+            onClick={() => handleBuyProperty(user._id, props.property._id)}
             className="button-card"
             style={{ backgroundColor:"#FEDE44" }}
             // disabled={true}

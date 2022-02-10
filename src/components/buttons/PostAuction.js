@@ -30,13 +30,14 @@ const YourAuction = styled.h3`
     -webkit-text-stroke-color: black;
 `
 
-const PostAuction = () => {
+const PostAuction = (props) => {
     return (
         <PostAuctionContainer>
             <YourAuction style={{color:'white'}}>VOTRE MISE</YourAuction>
             <ButtonPostAuction
                 type='button'
                 className='logo-btn'
+                onClick={props.sendBid}
             >
                 <OneHundred>+ 100§</OneHundred>
                 <img src={sergeBilleys} alt='billets' style={{width:'50px', transform:'rotate(-9.51deg)'}} />

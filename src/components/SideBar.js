@@ -36,7 +36,7 @@ const DiceContainer = styled.div`
     justify-content: center;
 `
 
-const SideBar = () => {
+const SideBar = (props) => {
     const location = useLocation()
     console.log(location)
 
@@ -55,7 +55,7 @@ const SideBar = () => {
                 </DiceContainer>
             }
             {location.pathname === '/auction-room' &&
-                <PostAuction />
+                <PostAuction sendBid={props.sendBid}/>
             }
             <Buttons>
                 <Link to="/gameboard">

@@ -9,7 +9,7 @@ const List = () => {
             {/* Faire un map des propriétés mises en vente */}
             <div className=''>
                 <AuctionListElement />
-                <AuctionListElement />
+                {/* <AuctionListElement /> */}
             </div>
         </div>
     );

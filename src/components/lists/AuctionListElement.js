@@ -12,10 +12,10 @@ const AuctionListElement = () => {
                 <div className='property timeLeft'>
                     <div className='flex station'>
                         {/* Nom de la station */}
-                        <h4>La Fourche</h4>
+                        <h4>Chatelet</h4>
                         {/* Ligne de métro */}
                         <div className='line'>
-                            <h4>13</h4>
+                            <h4>4</h4>
                         </div>
                     </div>
                     {/* Faire un map des amélioration */}
