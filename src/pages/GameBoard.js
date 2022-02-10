@@ -17,6 +17,7 @@ const GameBoard = () => {
     const [userInfo, setUserInfo] = useState(null)
     const [ testPositionIndex, setTestPositionIndex] = useState(null)
     const [ testLine, setTestLine] = useState(null)
+    const [testProperties,setTestProperties] = useState(null)
     console.log("user",user)
 
     useEffect(() => {
@@ -30,26 +31,31 @@ const GameBoard = () => {
             fetch (`http://localhost:5000/lines`)
             .then(response => response.json())
             .then(data=>setTestLine(data))
+
+            fetch (`http://localhost:5000/properties`)
+            .then(response => response.json())
+            .then(data => setTestProperties(data))
         }
 
       },[])
 
-    const handleAlgo = () => {
-        let positionName = userInfo.position.position[0][0]
-        let diceResult = 6 
-        console.log("testAlgo1",userInfo)
-        console.log("testAlgo2", positionName)
-        let newIndex = positionName + diceResult - 1
-        console.log("testAlgo3", newIndex)
-        console.log("testAlgo4", testLine)
-        let numIndex = positionName -1
-        let checkIndex = testLine[numIndex]
-        console.log("testAlgo5",checkIndex)
-        let lineIndex = checkIndex.paths[0][newIndex]
-        console.log("testAlgo6", lineIndex)
+    const handleAlgoMove = () => {
+        const positionName = userInfo.position.position[0][0]
+        const diceResult = 6 
+        const newIndex = positionName + diceResult - 1
+        const numIndex = positionName -1
+        const checkIndex = testLine[numIndex]
+        const lineIndex = checkIndex.paths[0][newIndex]
+        const checkStation = testProperties.find(station => station.keyName === lineIndex)
+        const newCoordinates = [checkStation.latitude, checkStation.longitude]
+        console.log("finalAlgo",newCoordinates)
+         
+
     }
 
-    
+    const handleCheckDiv = () => {
+
+    }
     if (!user) {
         return <p>Pas de user</p>
     }
@@ -66,7 +72,7 @@ const GameBoard = () => {
             <div className="map">
                 <Map className="map"/>
             </div>
-            <div onClick ={handleAlgo} className="title">
+            <div onClick ={handleAlgoMove} className="title">
                 <SergeSubway />
             </div>
             <div className="sidebar">

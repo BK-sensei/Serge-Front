@@ -8,6 +8,8 @@ import { UserContext } from "../contexts/User"
 
 const pawnMovement = () => {
     let index = "6202f34d0eef47b233bd6fc3"
+    
+    // console.log()
 }
 
 
