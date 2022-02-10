@@ -1,7 +1,8 @@
 .auctionRoom-container {
-    /* height: 100vh; */
+    height: 100vh;
     background-color: rgba(136, 185, 149, 0.8);
     font-family: 'Fascinate Inline', cursive;
+    /* position: relative; */
 }
 
 /* AUCTION TITLE */
@@ -10,8 +11,11 @@
     align-items: center;
     margin-left: 30px;
     gap: 10px;
+    padding: 10px 0px 20px 0px;
 }
-
+.auction-logo{
+    width: 80px;
+}
 .auction-title h1{
     color: #FFFBEF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -123,7 +127,7 @@
 }
 
 .cards{
-    margin: 25px 0px;
+    margin: 20px 0px;
 }
 .bg-cards{
     width: 360px;
@@ -139,8 +143,8 @@ hr {
     display: flex;
     justify-self: center;
     width: 50%;
-    border-top: 2px solid #F9BA2D;
-    border-bottom: 2px solid #F9BA2D;
+    border-top: 1px solid #F9BA2D;
+    border-bottom: 1px solid #F9BA2D;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -154,12 +158,12 @@ hr {
     /* border-top: 5px solid #F9BA2D;
     border-bottom: 5px solid #F9BA2D;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-    padding: 15px 0px;
+    padding: 10px 0px;
     margin-bottom: 30px;
 }
 .nft-serge{
-    width: 45px;
+    width: 30px;
 }
 .value{
-    font-size: 22px;
+    font-size: 20px;
 }

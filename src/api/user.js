@@ -1,5 +1,5 @@
-const getUser = async _id => {
-    const getUserResponse = await fetch(`${process.env.REACT_APP_API_URL}/user/${_id}`, {
+const getUser = async (username) => {
+    const getUserResponse = await fetch(`${process.env.REACT_APP_API_URL}/user/${username}`, {
         headers: {
             'Content-type': 'application/json'
         },

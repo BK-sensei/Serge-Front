@@ -1,7 +1,6 @@
 import '../styles/components-style/itemProperties.css'
 
 const ItemProperties = (props) => {
-
     return (
         <div className="flex list-Item">
 
