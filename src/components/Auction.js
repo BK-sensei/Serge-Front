@@ -2,7 +2,7 @@ import React from 'react'
 
 import ('../styles/pages-style/auction.css')
 
-const Auction = () => {
+const Auction = (props) => {
     return (
         <div className='currentAuction-container'>
             <h2 className='currentAuction'>ENCHERE EN COURS</h2>
@@ -25,7 +25,7 @@ const Auction = () => {
                 <div className='flex time'>
                     <img src={require('../images/logos/logo-nft-serge.png')} className='nft-serge' alt=''/>
                     {/* à changer par la valeur en cours */}
-                    <p className='value'>3 500 §</p> 
+                    <p className='value'>{props.value} §</p> 
                     <img src={require('../images/logos/logo-nft-serge.png')} className='nft-serge' alt=''/>
                 </div>
                 <hr />

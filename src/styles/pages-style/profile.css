@@ -42,17 +42,21 @@
     border: 5px solid #E1BF00;
     box-sizing: border-box;
     border-radius: 30px;
+    padding: 10px;
+
+    overflow-y: scroll;
 }
 
 .list-propertyCard{
     display: flex;
     flex-wrap: wrap;
-    margin: 20px;
+    justify-content: space-around;
+
     overflow-y: scroll;
 }
 
 .li-card{
-    margin-right: 10px;
+    margin: 10px;
 }
 
 .station-title{
