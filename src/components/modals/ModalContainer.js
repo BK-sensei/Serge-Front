@@ -16,20 +16,15 @@ const modalStyle = {
       zIndex: 20,
       width: '500px',
       borderRadius: '10px',
-      position: 'absolute'
+      position: 'absolute',
     }
 }
 
-const closedButton = {
-    content: {
-        display: 'block'
-    }
-}
 
 const ModalContainer = () => {
     const { modalType, visible, setVisible } = useContext(ModalContext)
 
-    const handleModal = () => {
+    const handleClosed = () => {
         if (visible) {
             setVisible(false)
         } else {
@@ -44,12 +39,12 @@ const ModalContainer = () => {
                 ariaHideApp={false}
                 style={modalStyle}
             >
-            <button
-                type='button'
-                onClick={handleModal}
-                style={closedButton}
-            >
-                X
+            <button 
+                className="button-modale" 
+                onClick={handleClosed}>
+                <h4>
+                    X
+                </h4>
             </button>
 
                 {modalType === "ranking" &&

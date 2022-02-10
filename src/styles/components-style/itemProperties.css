@@ -1,38 +1,54 @@
-.nft-ItemProperties {
+.list-Item{
+    padding: 5px 0px;
+    border-bottom: 1px solid black;
+    justify-content: space-between;
+}
+
+.start-Item{
+    justify-content: flex-start;
+    font-family: Fascinate;
+    font-weight: 900;
+    font-size: 16px;
+}
+
+.nft-Item {
     color: #F9BA2D;
+    font-family: Enriquate;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #88673F;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    margin-right: 5px;
+
 }
 
-.logo-nft-ItemProperties{
+.logo-nft-Item{
     width: 25px;
     height: 30px;
+    margin-left: 5px;
 }
 
-.logoAmelioration{
-    width: 30px;
-    height: 30px;
-}
-
-.list-ItemProperties{
-    justify-content: space-between;
-}
-
-.station{
-    gap: 20px;
-    margin-bottom: 5px;
-}
-
-.line-ItemProperties{
-    width: 30px;
-    height: 30px;
+.line-Item{
+    width: 25px;
+    height: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #97C5D4;
     border-radius: 50%;
-    padding: 10px;
+
+    font-family: Fascinate Inline;
+    font-weight: 900;
+    font-size: 16px;
+    text-align: center;
+    color: #FFFFFF;
+    padding-bottom: 4px;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 }
+
+.logoAmelioration{
+    width: 25px;
+    height: 25px;
+    margin-top: 5px;
+}
+

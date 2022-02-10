@@ -1,5 +1,6 @@
 import {useContext, useEffect} from 'react'
 import { UserContext } from '../contexts/User'; 
+import { CardPropertyContext } from '../contexts/CardProperty'; 
 
 import "../styles/components-style/cardProperty.css"
 import "../styles/components-style/linesColors.css"
@@ -10,24 +11,41 @@ import UpgradeButton from '../components/buttons/UpgradeButton'
 
 const CardProperty = (props) => {
     const  { user } = useContext(UserContext)
+    const  { setCardProperty } = useContext(CardPropertyContext )
     const { property } = props
 
     console.log("props id",user)
 
+    const handleClosed = () => {
+        setCardProperty(null)
+    }
+
     return (
-        <div className="cardContainer">
+        <div 
+            className="cardContainer" 
+            // style={property.monument && {backgroundImage:`url(../images/monuments/${property.monument.station}.png)`}}
+        >
+            <button className="button-modale" onClick={handleClosed}>
+                <h4>X</h4>
+            </button>
             <div className="cardBorder">
                 <div className="cardContent">
-                        <div 
-                            // style= {color: "black", {props.property.class === "hub" && {nthStyles}}
-                            className={property.class}
-                        >
+
+                    {/* {property.class === "hub" &&
+                        <div className="stripes">
+                            {property.lines.map(line => {
+                                <div className={`line_${line}`}></div>
+                            })}
+                        </div>
+                    } */}
+
+                    <div className={property.class}>
                         <div className="titleContent">
                             <p className="titleType">Titre de propriété</p>
                             <h4 className="titleProperty">{property.name}</h4>
                         </div>
                     </div>
-
+                 
                     <div className="listContent">
                         <ul>
                             <li>
@@ -60,6 +78,7 @@ const CardProperty = (props) => {
                                 </div>
                                 <p className="bold">{property.currentValue/2}  $</p>
                             </li>
+                            {property.monument ? 
                             <li>
                                 <div className="liStart">
                                     <img className="logo-upgrade" src={require('../images/ameliorations/monument.png')} alt="monument"/>
@@ -67,40 +86,50 @@ const CardProperty = (props) => {
                                 </div>
                                 <p className="bold">{property.currentValue} $</p>
                             </li>
+                            :
+                            <li>
+                                <div className="liStart">
+                                    <img className="logo-upgrade" src={require('../images/ameliorations/mall.png')} alt="shopping-mall"/>
+                                    <p>Centre commercial</p>
+                                </div>
+                                <p className="bold">{property.currentValue} $</p>
+                            </li>
+                            }
+                            
                         </ul>
-                            {property.owner && property.owner === user._id &&
-                                <div className="bottomCard">
-                                    <UpgradeButton/>
-                                    <SellButton/>
-                                </div> 
-                            } 
-                            {property.owner && property.owner !== user._id &&
-                                <div className="infosOwner">
-                                    <p>Propriétaire:</p>
-                                    <p className="bold" style={{marginTop: 8}}>{property.owner}</p>
-                                </div>
-                            }
-                            {property.owner && property.owner !== user._id &&
-                                <div className="infosOwner">
-                                    <p>Propriétaire:</p>
-                                    <p className="bold" style={{marginTop: 8}}>{property.owner}</p>
-                                </div>
-                            }
-                            {!property.owner &&
+                        {property.owner && property.owner === user._id &&
                             <div className="bottomCard">
-                                <div className="infosOwner">
-                                    <p>Propriétaire :</p>
-                                    <p className="bold" style={{marginTop: 8}}>Aucun</p>
-                                </div>
-                                <BuyButton> 
-                                    <button className="buttonBuy" type="button">Acheter</button>
-                                </BuyButton> 
+                                <UpgradeButton/>
+                                <SellButton/>
+                            </div> 
+                        } 
+                        {property.owner && property.owner !== user._id &&
+                            <div className="infosOwner">
+                                <p>Propriétaire:</p>
+                                <p className="bold" style={{marginTop: 8}}>{property.owner}</p>
                             </div>
-                            }                                
+                        }
+                        {property.owner && property.owner !== user._id &&
+                            <div className="infosOwner">
+                                <p>Propriétaire:</p>
+                                <p className="bold" style={{marginTop: 8}}>{property.owner}</p>
+                            </div>
+                        }
+                        {!property.owner &&
+                        <div className="bottomCard">
+                            <div className="infosOwner">
+                                <p>Propriétaire :</p>
+                                <p className="bold" style={{marginTop: 8}}>Aucun</p>
+                            </div>
+                            <BuyButton> 
+                                <button className="buttonBuy" type="button">Acheter</button>
+                            </BuyButton> 
+                        </div>
+                        } 
                     </div>
                 </div>
-            </div>       
-        </div>
+            </div>    
+        </div>    
     );
 };
 

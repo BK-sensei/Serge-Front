@@ -20,7 +20,21 @@ const getUsers = async () => {
         return data
     }
 
+
+const putUser = async (_id) => {
+    const putUserResponse = await fetch (`process.env.REACT_APP_API_URL/user/${_id}` ,{
+        method: 'put',
+        headers : {
+            'Content-type': 'application/json'
+        },
+        credentials:'include',
+        })
+        const data = await putUserResponse.json()
+        return data
+    }
+
 export {
     getUser,
-    getUsers
+    getUsers,
+    putUser,
 }

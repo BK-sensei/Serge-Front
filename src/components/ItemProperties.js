@@ -1,27 +1,34 @@
 import '../styles/components-style/itemProperties.css'
 
 const ItemProperties = (props) => {
-    // console.log(props)
+    console.log("",props)
     return (
-        <ul className='flex list-ItemProperties'>
-            <div className='nft-ItemProperties'>
-                    <img className="logo-nft-ItemProperties" src={require('../images/logos/logo-nft-serge.png')} alt='logo-nft-serge'/>
+        <div className="flex list-Item">
+
+            <div className="flex start-Item">
+                <div className='nft-Item'>
+                    <img className="logo-nft-Item" src={require('../images/logos/logo-nft-serge.png')} alt='logo-nft-serge'/>
                     {/* Valeur du NFT de la propriété */}
-                    <p>{props.property.currentValue}</p>
+                    <h4>{props.property.currentValue} §</h4>
                 </div>
-                <div className='property timeLeft'>
-                    <div className='flex station'>
-                        {/* Nom de la station */}
-                        <h5>{props.property.name}</h5>
-                        {/* Ligne de métro */}
-                        <div className='line'>
-                            <h4>13</h4>
-                        </div>
+                <div className='column-Item'>
+                    {/* Nom de la station */}
+                    <h4>{props.property.name}</h4> 
+                    {/* Amélioration */}
+                    <img className='logoAmelioration' src={require('../images/ameliorations/vending-machine.png')}  alt=''/> 
+                </div>
+            </div>
+
+            <div className='flex station'> 
+                {/* Ligne de métro */}
+                {props.property.lines.map(line => 
+                    <div className={`line-Item line_${line }`}>
+                        <h4>{line}</h4>
                     </div>
-                    {/* Faire un map des amélioration */}
-                    <img className='logoAmelioration' src={require('../images/ameliorations/vending-machine.png')}  alt=''/>
-                </div>
-        </ul>
+                )} 
+            </div>   
+ 
+        </div>
     )
 }
 
