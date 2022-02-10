@@ -1,5 +1,6 @@
 import React from 'react'
 import Dice from '../components/Dice'
+import PostAuction from '../components/buttons/PostAuction'
 
 const NotFound = () => {
 
@@ -7,6 +8,7 @@ const NotFound = () => {
         <>
             <h1>Not Found</h1>
             <Dice />
+            <PostAuction />
         </>
     )
 }

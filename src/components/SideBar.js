@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom'
 
 import ProfileButton from './buttons/ProfileButton'
 import BankAccount from '../components/BankAccount'
@@ -8,8 +8,8 @@ import Dice from '../components/Dice'
 import MapButton from './buttons/MapButton'
 import AuctionButton from './buttons/AuctionButton'
 import RankingButton from './buttons/RankingButton'
-import ModalContainer from './modals/ModalContainer';
-
+import ModalContainer from './modals/ModalContainer'
+import PostAuction from './buttons/PostAuction'
 
 const Container = styled.div`
     background-color: rgba(0, 0, 0, 0.3);
@@ -37,6 +37,9 @@ const DiceContainer = styled.div`
 `
 
 const SideBar = () => {
+    const location = useLocation()
+    console.log(location)
+
     return (
         <Container>
             <div>
@@ -46,9 +49,14 @@ const SideBar = () => {
                 <BankAccount/>
                 <CardsList/>
             </div>
-            <DiceContainer>
-                <Dice/>
-            </DiceContainer>
+            {location.pathname === '/gameboard' &&
+                <DiceContainer>
+                    <Dice/>
+                </DiceContainer>
+            }
+            {location.pathname === '/auction-room' &&
+                <PostAuction />
+            }
             <Buttons>
                 <Link to="/gameboard">
                     <MapButton />
