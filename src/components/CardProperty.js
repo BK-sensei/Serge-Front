@@ -14,8 +14,6 @@ const CardProperty = (props) => {
     const  { setCardProperty } = useContext(CardPropertyContext )
     const { property } = props
 
-    console.log("props id",user)
-
     const handleClosed = () => {
         setCardProperty(null)
     }
@@ -99,8 +97,12 @@ const CardProperty = (props) => {
                         </ul>
                         {property.owner && property.owner === user._id &&
                             <div className="bottomCard">
-                                <UpgradeButton/>
-                                <SellButton/>
+                                <UpgradeButton
+                                    property={property}
+                                />
+                                <SellButton
+                                    property={property}
+                                />
                             </div> 
                         } 
                         {property.owner && property.owner !== user._id &&
@@ -121,9 +123,9 @@ const CardProperty = (props) => {
                                 <p>Propriétaire :</p>
                                 <p className="bold" style={{marginTop: 8}}>Aucun</p>
                             </div>
-                            <BuyButton> 
-                                <button className="buttonBuy" type="button">Acheter</button>
-                            </BuyButton> 
+                            <BuyButton
+                                property={property}
+                            /> 
                         </div>
                         } 
                     </div>

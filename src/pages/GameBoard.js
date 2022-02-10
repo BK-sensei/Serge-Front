@@ -18,25 +18,14 @@ import "../styles/pages-style/gameboard.css"
 const GameBoard = () => {
     const  { user } = useContext(UserContext)
     // console.log("user",user)
-    const { cardProperty } = useContext(CardPropertyContext)
-    console.log("card", cardProperty)
+    const { cardProperty } = useContext(CardPropertyContext)    
     
-    
-    // useEffect(() => {
-    //     fetchUser()
-    // }, [])
-
-    // const fetchUser = async () => {
-    //     const userData = await getUser()
-    //     console.log("userData",userData)
-    //     // setUser(userData)
-    // }
-
+ 
     if (!user) {
         return <p>Pas de user</p>
     }
     
-    // console.log(user)
+
     return (
         <div>
             {cardProperty &&
@@ -46,9 +35,6 @@ const GameBoard = () => {
                     />
                 </div>
             }
-            {/* <div className="pawn">
-                <Pawn/>
-            </div>  */}
             <div className="map">
                 <Map className="map"/>
             </div>

@@ -1,22 +1,22 @@
 import { useContext } from 'react'
-import { UserContext } from '../contexts/User'
+import { UserContext } from '../../contexts/User'
 
 import "../../styles/components-style/buttons.css"
-import { putUser } from '../../api/properties'
+import { postProperty } from '../../api/properties'
 
 
-const BuyButton = () => {
+const BuyButton = (props) => {
     const { setUser } = useContext(UserContext)
 
     const handleBuyProperty = async () => {
-        const propertiesData = await putUser()
-        setUser(propertiesData)
+        const newProperty = await postProperty(props.property)
+        console.log(props.property)
     }
 
     return (
         <button 
             type='button'
-            onClick={() => handleBuyProperty()}
+            onClick={() => handleBuyProperty(props.property)}
             className="button-card"
             style={{ backgroundColor:"#FEDE44" }}
         >
