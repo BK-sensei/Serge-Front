@@ -1,5 +1,7 @@
-import styled from 'styled-components'
+import { useContext } from 'react'
+import { UserContext } from '../../contexts/User'
 
+import styled from 'styled-components'
 import ItemProperties from '../ItemProperties'
 
 const Container = styled.div`
@@ -13,9 +15,10 @@ const Container = styled.div`
 `
 
 const List = styled.div`
-    margin: 15px;
+    margin: 10px;
     height: 90%;
     overflow-y: scroll;
+    padding-right:5px;
 
     ::-webkit-scrollbar {
         width: 8px;
@@ -24,7 +27,7 @@ const List = styled.div`
     ::-webkit-scrollbar-track {
         box-shadow: inset 0 0 5px rgb(225, 191, 0); 
         border-radius: 10px;
-        margin-right: 5px;
+        margin-left: 5px;
     }
     
     ::-webkit-scrollbar-thumb {
@@ -38,17 +41,23 @@ const List = styled.div`
 `
 
 const CardsList = () => {
+    const { user } = useContext(UserContext)
+    // console.log("user", user.properties)
+
     return (
         <Container>
-            <List>
-                <ItemProperties/>
-                <ItemProperties/>
-                <ItemProperties/>
-                <ItemProperties/>
-                <ItemProperties/>
-                <ItemProperties/>
-                <ItemProperties/>
-            </List>            
+            {user.properties ? 
+                <List>
+                    {user.properties.map((property,index) =>
+                        <ItemProperties
+                            key={index}
+                            property={property}
+                        />
+                    )}
+                </List>    
+                :
+                <p>Aucune propriété</p>
+            }              
         </Container>
     );
 };

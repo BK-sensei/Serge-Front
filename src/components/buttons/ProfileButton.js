@@ -2,13 +2,11 @@ import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom' 
 
 import { UserContext } from '../../contexts/User'
-import { logOut } from '../../api/auth'
+// import { logOut } from '../../api/auth'
 import { AiOutlineLogout } from 'react-icons/ai'
 
 // import styled from 'styled-components'
 import "../../styles/components-style/profileButton.css"
-
-
 
 const ButtonProfile = () => {
     const navigate = useNavigate()

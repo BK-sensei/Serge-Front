@@ -10,7 +10,7 @@ import ('../../styles/pages-style/home.css')
 
 const Login = () => {
     const navigate = useNavigate()
-    const { setUser } = useContext(UserContext)
+    const { getUser } = useContext(UserContext)
 
     const { values, errors, handleSubmit, handleChange } = useFormik({
         initialValues: {
@@ -20,7 +20,7 @@ const Login = () => {
         onSubmit: async (values, { setFieldError }) => {
             try {
                 const response = await logIn(values)
-                setUser(response)
+                await getUser()
                 navigate('/gameboard')
             } catch (err) {
                 console.log(err);
@@ -37,7 +37,7 @@ const Login = () => {
         validateOnChange: false
     })
 
-    console.log(errors)
+    // console.log(errors)
 
     return (
         <>

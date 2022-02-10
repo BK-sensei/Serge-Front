@@ -1,0 +1,57 @@
+.list-Item{
+    padding: 5px 0px;
+    border-bottom: 2px solid #F9BA2D;
+    justify-content: space-between;
+}
+
+.start-Item{
+    justify-content: flex-start;
+    font-family: Fascinate;
+    font-weight: 900;
+    font-size: 16px;
+}
+
+.nft-Item {
+    color: #F9BA2D;
+    font-family: Enriquate;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #88673F;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-right: 5px;
+
+}
+
+.logo-nft-Item{
+    width: 25px;
+    height: 30px;
+    margin-left: 5px;
+}
+
+.line-Item{
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+
+    font-family: Fascinate Inline;
+    font-weight: 900;
+    font-size: 16px;
+    text-align: center;
+    color: #FFFFFF;
+    padding-bottom: 4px;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.logoAmelioration{
+    width: 25px;
+    height: 25px;
+    margin-top: 5px;
+}
+
+.property-name {
+    font-family: 'Enriqueta', serif;
+}

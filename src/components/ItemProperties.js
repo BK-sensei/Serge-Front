@@ -1,26 +1,34 @@
-import '../styles/pages-style/auction.css'
+import '../styles/components-style/itemProperties.css'
 
-const ItemProperties = () => {
+const ItemProperties = (props) => {
+    console.log("",props)
     return (
-        <ul className='flex list auction-list'>
-            <div className='nft'>
-                    <img src={require('../images/logos/logo-nft-serge.png')} className='nft-serge' alt=''/>
+        <div className="flex list-Item">
+
+            <div className="flex start-Item">
+                <div className='nft-Item'>
+                    <img className="logo-nft-Item" src={require('../images/logos/logo-nft-serge.png')} alt='logo-nft-serge'/>
                     {/* Valeur du NFT de la propriété */}
-                    <p>1 500 §</p>
+                    <h4>{props.property.currentValue} §</h4>
                 </div>
-                <div className='property timeLeft'>
-                    <div className='flex station'>
-                        {/* Nom de la station */}
-                        <h4>La Fourche</h4>
-                        {/* Ligne de métro */}
-                        <div className='line'>
-                            <h4>13</h4>
-                        </div>
+                <div className='column-Item'>
+                    {/* Nom de la station */}
+                    <h4 className='property-name'>{props.property.name}</h4> 
+                    {/* Amélioration */}
+                    <img className='logoAmelioration' src={require('../images/ameliorations/vending-machine.png')}  alt=''/> 
+                </div>
+            </div>
+
+            <div className='flex station'> 
+                {/* Ligne de métro */}
+                {props.property.lines.map(line => 
+                    <div className={`line-Item line_${line }`}>
+                        <h4>{line}</h4>
                     </div>
-                    {/* Faire un map des amélioration */}
-                    <img src={require('../images/ameliorations/vending-machine.png')} className='amelioration' alt=''/>
-                </div>
-        </ul>
+                )} 
+            </div>   
+ 
+        </div>
     )
 }
 

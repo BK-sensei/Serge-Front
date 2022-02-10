@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components'
+import { Link } from 'react-router-dom';
 
 import ProfileButton from './buttons/ProfileButton'
 import BankAccount from '../components/BankAccount'
@@ -25,7 +25,6 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: space-between;
 `
-
 const Buttons = styled.div`
    display: flex;
    justify-content: space-around;
@@ -60,6 +59,7 @@ const SideBar = () => {
                 <RankingButton/>
                 <ModalContainer />
             </Buttons >
+            <ModalContainer />
         </Container>
     );
 };

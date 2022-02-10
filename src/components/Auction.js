@@ -21,7 +21,7 @@ const Auction = () => {
 
             <div className='auction-value flex time'>
                 <hr />
-                <h3>VALEUR DE L’ENCHERE</h3>
+                <h4 style={{color:"white"}}>VALEUR DE L’ENCHERE</h4>
                 <div className='flex time'>
                     <img src={require('../images/logos/logo-nft-serge.png')} className='nft-serge' alt=''/>
                     {/* à changer par la valeur en cours */}
