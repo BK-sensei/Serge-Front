@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import {useContext} from 'react'
 import { UserContext } from '../contexts/User'; 
 import { CardPropertyContext } from '../contexts/CardProperty'; 
 
@@ -11,21 +11,23 @@ import UpgradeButton from '../components/buttons/UpgradeButton'
 
 const CardProperty = (props) => {
     const  { user } = useContext(UserContext)
-    const  { setCardProperty } = useContext(CardPropertyContext )
+    const  { setCardProperty } = useContext(CardPropertyContext)
     const { property } = props
-
-    console.log("props id",user)
-
+  
     const handleClosed = () => {
         setCardProperty(null)
     }
 
+     
     return (
         <div 
             className="cardContainer" 
             // style={property.monument && {backgroundImage:`url(../images/monuments/${property.monument.station}.png)`}}
         >
-            <button className="button-modale" onClick={handleClosed}>
+            <button 
+                className="button-modale" 
+                onClick={handleClosed}
+            >
                 <h4>X</h4>
             </button>
             <div className="cardBorder">
@@ -99,8 +101,12 @@ const CardProperty = (props) => {
                         </ul>
                         {property.owner && property.owner === user._id &&
                             <div className="bottomCard">
-                                <UpgradeButton/>
-                                <SellButton/>
+                                <UpgradeButton
+                                    property={property}
+                                />
+                                <SellButton
+                                    property={property}
+                                />
                             </div> 
                         } 
                         {property.owner && property.owner !== user._id &&
@@ -121,9 +127,9 @@ const CardProperty = (props) => {
                                 <p>Propriétaire :</p>
                                 <p className="bold" style={{marginTop: 8}}>Aucun</p>
                             </div>
-                            <BuyButton> 
-                                <button className="buttonBuy" type="button">Acheter</button>
-                            </BuyButton> 
+                            <BuyButton
+                                property={property}
+                            /> 
                         </div>
                         } 
                     </div>

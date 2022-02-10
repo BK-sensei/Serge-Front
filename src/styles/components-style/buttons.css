@@ -36,7 +36,7 @@ button:hover{
 }
 
 .button-modale {
-    background-color: rgba(131, 132, 133, 0.5);;
+    background-color: rgba(131, 132, 133, 0.5);
     box-shadow: transparent !important;
     border-radius: 50%;
     margin-right: 10px;
@@ -47,4 +47,3 @@ button:hover{
     left : -10px;
     top : -10px;
 }
-

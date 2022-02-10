@@ -11,7 +11,7 @@ import "../../styles/components-style/profileButton.css"
 const ButtonProfile = () => {
     const navigate = useNavigate()
     const { user } = useContext(UserContext)
-    console.log(user)
+    // console.log(user)
 
     const handleLogoutClick = () => {
         fetch('http://localhost:5000/auth/logout', {
@@ -28,7 +28,7 @@ const ButtonProfile = () => {
             <div className='contentProfile'>
                 <div className="contentStart">
                     {!user.pictureUrl ? 
-                        <img className="avatar" src={require('../../images/avatars/bunny-pink.png')} alt="pink-Serge-metro"/>
+                        <img className="avatar" src={require('../../images/avatars/bunny-green.png')} alt="pink-Serge-metro"/>
                     : <img className="avatar" src={user.pictureUrl} alt="bank"/>
                     }
                     <h3>{user.username}</h3>

@@ -1,7 +1,6 @@
 import '../styles/components-style/itemProperties.css'
 
 const ItemProperties = (props) => {
-    console.log("",props)
     return (
         <div className="flex list-Item">
 
@@ -13,7 +12,7 @@ const ItemProperties = (props) => {
                 </div>
                 <div className='column-Item'>
                     {/* Nom de la station */}
-                    <h4 className='property-name'>{props.property.name}</h4> 
+                    <h4>{props.property.name}</h4> 
                     {/* Amélioration */}
                     <img className='logoAmelioration' src={require('../images/ameliorations/vending-machine.png')}  alt=''/> 
                 </div>

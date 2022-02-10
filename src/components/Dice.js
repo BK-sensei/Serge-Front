@@ -1,8 +1,9 @@
-import React from 'react'
-import { useEffect, useState } from 'react/cjs/react.development'
+import React, { useState, useContext } from 'react'
+import { DiceContext } from '../contexts/Dice'
 import '../styles/components-style/dice.css'
 
 const Dice = () => {
+    const { setDice } = useContext(DiceContext)
     const [show, setShow] = useState("")
     const [rolling, setRolling] = useState(false)
 
@@ -13,6 +14,7 @@ const Dice = () => {
         setTimeout(() => {
             setRolling(false)
             setShow(`show-${dice}`)
+            setDice(dice)
         }, 1000)
     }
     
