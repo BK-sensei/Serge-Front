@@ -47,7 +47,7 @@ const SideBar = () => {
                 <CardsList/>
             </div>
             <DiceContainer>
-                <Dice/>
+                <Dice />
             </DiceContainer>
             <Buttons>
                 <Link to="/gameboard">

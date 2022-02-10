@@ -20,7 +20,22 @@ const getUsers = async () => {
         return data
     }
 
+const putUser = async (_id, body) => {
+    const getUserResponse = await fetch(`http://localhost:5000/users/${_id}`, {
+        method: "put",
+        headers: {
+            'Content-type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify(body)
+    })
+
+    const data = await getUserResponse.json()
+    return data
+}
+
 export {
     getUser,
     getUsers,
+    putUser
 }
