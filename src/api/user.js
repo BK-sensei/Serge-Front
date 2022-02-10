@@ -1,7 +1,5 @@
-import {useContext, setContext} from 'react'
-   
-const getUser = async (username) => {
-    const getUserResponse = await fetch(`${process.env.REACT_APP_API_URL}/user/${username}`, {
+const getUser = async _id => {
+    const getUserResponse = await fetch(`${process.env.REACT_APP_API_URL}/user/${_id}`, {
         headers: {
             'Content-type': 'application/json'
         },
@@ -21,3 +19,8 @@ const getUsers = async () => {
         const data = await getUsersResponse.json()
         return data
     }
+
+export {
+    getUser,
+    getUsers
+}

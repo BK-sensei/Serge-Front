@@ -1,7 +1,7 @@
 import '../styles/components-style/itemProperties.css'
 
 const ItemProperties = (props) => {
-    console.log(props)
+    // console.log(props)
     return (
         <ul className='flex list-ItemProperties'>
             <div className='nft-ItemProperties'>

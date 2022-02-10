@@ -13,7 +13,8 @@ const UserProvider = ({ children }) => {
 
     const getUser = async () => {
         const fetchedUser = await getMe()
-
+        console.log("fetcheUser",fetchedUser)
+        
         if (!fetchedUser.error) {
             setUser(fetchedUser)
         }

@@ -42,18 +42,22 @@ const List = styled.div`
 
 const CardsList = () => {
     const { user } = useContext(UserContext)
-    // console.log("user", user)
+    // console.log("user", user.properties)
 
     return (
         <Container>
-            <List>
-                {user.properties.map((property,index) =>
-                    <ItemProperties
-                        key={index}
-                        property={property}
-                    />
-                )}
-            </List>            
+            {user.properties ? 
+                <List>
+                    {user.properties.map((property,index) =>
+                        <ItemProperties
+                            key={index}
+                            property={property}
+                        />
+                    )}
+                </List>    
+                :
+                <p>Aucune propriété</p>
+            }              
         </Container>
     );
 };
