@@ -227,10 +227,10 @@ const Map = ({ coordinates }) => {
         `
     }
 
-
+    console.log("utilisateur", user);
 
     return (
-        <div id="mapContainer" onClick={() => createPawn(2.30360515293852, 48.8792362487704)}>
+        <div id="mapContainer" >
         </div>       
     );
 };

@@ -14,6 +14,7 @@ const PostAuctionContainer = styled.div`
 const ButtonPostAuction = styled.div`
     width: 200px;
     background-color: #AD3838; 
+    cursor: pointer;
 `
 
 const OneHundred = styled.div`

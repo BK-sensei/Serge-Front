@@ -69,8 +69,8 @@
 }
 
 .station{
-    gap: 20px;
-    /* margin-bottom: 5px; */
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
 .line{
@@ -79,11 +79,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #97C5D4;
+    color: white;
     border-radius: 50%;
     padding: 10px;
 }
-
+.line-1{
+    background-color: #EBCA52;
+}
+.line-2{
+    background-color: #366DAF;
+}
+.line-4{
+    background-color: #AE5595;
+}
+.line-6{
+    background-color: #88B995;
+}
+.line-7{
+    background-color: #D59DB0;
+}
+.line-11{
+    background-color: #88673F;
+}
+.line-14{
+    background-color: #603789;
+}
 .timeLeft{
     align-self: flex-end;
     gap: 5px;
