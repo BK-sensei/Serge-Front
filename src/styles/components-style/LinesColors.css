@@ -1,12 +1,13 @@
 .hub {
     fill: rgb(240, 240, 240);
     stroke: rgb(100, 100, 100);
-    background-color: rgb(255,255,255);
+    background-color: rgb(100, 100, 100);
 }
 
 .railStation {
     fill: rgb(0,0,0);
     stroke: rgb(255,255,255);
+    background-color: rgb(0,0,0);
     /* background-image: url("../../images/logo-gare.svg");
     background-position: center; */
 }
@@ -72,7 +73,7 @@
 }
 
 .line_9 {
-    fill: rgb(205,200,63);
+    fill: rgb(214, 208, 22);
     stroke: rgb(122, 119, 22);
     background-color: rgb(205,200,63);
 }

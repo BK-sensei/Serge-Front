@@ -11,7 +11,7 @@ const AuctionButton = () => {
                 <img 
                     src={require('../../images/logos/auction-logo.png')}  
                     alt=''
-                    style={{position:"absolute", width: "80px",height: "60px"}} 
+                    style={{position:"absolute", width: "70px",height: "50px"}} 
                 />
             </button>
         </div>

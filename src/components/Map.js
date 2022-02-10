@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useContext } from 'react'
 import { UserContext } from '../contexts/User'
+import { CardPropertyContext } from '../contexts/CardProperty'
 import * as d3 from "d3";
 
 import { getProperties } from '../api/properties'
@@ -10,20 +11,14 @@ import "../styles/components-style/map.css"
 import idfMap from '../api/idfMap.geojson'
 import parisMap from '../images/arrondissements.geojson'
 import geoLines from "../api/geoLines.json"
-import pawn from "../images/pions/pawn-blue.svg"
 
-// const lodash = require("lodash")
 
 const Map = () => {
-    const { user } = useContext(UserContext)
+    const { cardProperty, setCardProperty } = useContext(CardPropertyContext)
     const [stationsData, setStationsData] = useState([])
     const [linesData, setLinesData] = useState([])
     const [mapCreated, setMapCreated] = useState(false)
-    const [mapContainer, setMapContainer] = useState([])
-    const [projection, setProjection] = useState([])
    
-    
-
     useEffect(() => {
         fetchData()
     }, [])
@@ -51,13 +46,10 @@ const Map = () => {
     const createMap = () => {
 
         // Récupérer centre carte
-
         let median_x = d3.median(stationsData, d => d.latitude);
         let median_y = d3.median(stationsData, d => d.longitude);
 
-
         // Projection carte
-
         const projection = d3.geoMercator()
             .translate([0, 0])
             .scale(50000)
@@ -65,27 +57,21 @@ const Map = () => {
 
         const path = d3.geoPath(projection)
         // console.log(path)
-
-            
+       
         // Container carte
-
         const svg = d3.select("#mapContainer")
             .append("svg")
                 .attr("viewBox", "-110 -130 260 260")
-                // .attr("preserveAspectRatio", "xMidYMid meet")
                 .attr("class", "map")
         
         const g = svg.append("g")
-
-       setMapContainer(svg)
-       setProjection(projection)
-
-        console.log(svg)
-        console.log(projection)
+        // console.log(svg)
+        // console.log(projection)
 
 
         // Dessin de la carte
-
+        
+        // fond contours communes IDF 
         const idf = d3.json(idfMap).then(function(data) {
             g.selectAll("path")
                 .data(data.features)
@@ -97,9 +83,8 @@ const Map = () => {
         })
 
         const paris = d3.json(parisMap).then(function(data) { 
-            
-          // contours de Paris
-            g.selectAll("path")
+            // fond contours de Paris
+            const paris = g.selectAll("path")
                 .data(data.features)
                     .enter()
                     .append("path")
@@ -108,7 +93,7 @@ const Map = () => {
 
             // dessin des lignes
             const drawLines = d3.geoPath()
-            .projection(projection)
+                .projection(projection)
 
             geoLines.forEach(geoLine => {
                 g.append("path")
@@ -128,7 +113,7 @@ const Map = () => {
                     .attr("stroke-width", 0.4)
                     .attr("class", d => d.class)
                     .raise() 
-                    .on("click", e => console.log(e.target.__data__))
+                    .on("click", e => handleClick(e))
                     .on('mouseover', function (d, i) {
                         d3.select(this)
                             .transition()
@@ -161,87 +146,48 @@ const Map = () => {
                 //     .attr("r", d => (d.range / 3 / Math.sqrt(transform.k)));
                 // });
             }
+
         });
-
     }
-        if (!mapContainer) {
-            return <p>Loading</p>
-        }
 
-        console.log(mapContainer._groups)
+       const handleClick = (e) => {
+           console.log(e.target.__data__)
+           setCardProperty(e.target.__data__)
+       }   
+       console.log("propertyCard",cardProperty)
+        // console.log(mapContainer._groups)
         // mapContainer._groups.forEach(x => console.log(x))
 
-    
-        // // position joueur départ
 
-        // const userX = 2.38244550268222
-        // const userY = 48.8949061258374
 
-        // const userPosition = mapContainer._groups.append("g")
-        //     .attr("transform", `translate(${projection([userX, userY])})`)
+       // position joueur 
 
-        //     userPosition.append("circle")
-        //         .attr("r", 2)
-        //         .attr("fill", "red") 
+    //    const userX = 2.38244550268222
+    //    const userY = 48.8949061258374
+
+    //    const userPosition = svg.append("g")
+    //        .attr("transform", `translate(${projection([userX, userY])})`)
+
+    //    userPosition.append("circle")
+    //        .attr("r", 2)
+    //        .attr("fill", "red") 
+   
+    //    // const pawn = userPosition.append("image")
+    //    //     .attr("xlink:href", "https://lemagdesanimaux.ouest-france.fr/images/dossiers/2021-10/determiner-age-lapin-173456.jpg")
+    //    //     .attr("height", 50)
+    //    //     .attr("width", 50)
+    //    //     .attr("x", -5 )
+    //    //     .attr("y", -5 )
       
-        // const pawn = userPosition.append("image")
-        //     // .attr("src", `${require('../images/pions/pawn-blue.png')}`)
-        //     // .attr("xlink:href", "https://lemagdesanimaux.ouest-france.fr/images/dossiers/2021-10/determiner-age-lapin-173456.jpg")
-        //     .attr("height", 50)
-        //     .attr("width", 50)
-        //     .attr("x", -5 )
-        //     .attr("y", -5 )
     
 
     return (
-        <div className="background">
-            <div id="mapContainer">
-            </div>  
-        </div>
-         
+        <div id="mapContainer">
+        </div>       
     );
 };
 
 export default Map;
 
 
-     // .style("color", function(d, i) {
-            //     return d > 10 ? "#ff0000" : "#000";
-            //   })
-            //   .text(function(d, i){
-            //       for (i=0; i<dataset.length; i++)
-            //       {
-            //           if(d > 10)
-            //           {
-            //             result = "black";
-            //            }
-            //            else
-            //            {
-            //             result = "white";
-            //            }
-            //       }
-            //       return result;
-            //   })
-
-
-    // const gen_branch = function(d) {
-    //     return d.linesData.map(function(p) { return {"key": key, "paths": p}; });
-    // }
-
-
-    // container_lines.selectAll()
-    //     .selectAll(".line")
-    //     .data(linesData)
-    //     .enter()
-    //         .append("g")
-    //         .attr("class", line_class)
-
-    // lines.selectAll(".line_branch")
-    //     .data(gen_branch)
-    //     .enter()
-    //         .append("path")
-    //         .attr("stroke", "black")
-    //         // .attr("d", drawLine(properties, projection))
-    //         // .on("mouseover", select_line)
-    //         // .on("mouseout", deselect_line)
-            
+   
